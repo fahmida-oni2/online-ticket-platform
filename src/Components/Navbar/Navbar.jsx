@@ -100,12 +100,12 @@ const Navbar = () => {
             {isDropdownOpen && (
               <div className="absolute right-0 mt-1 w-48 z-5 bg-white rounded-md shadow-lg  border border-gray-200">
                 <div className="py-2">
-                  <Link to='/profile' className="btn w-full">My profile</Link>
+                  <Link to='/profile' className="btn w-40">My profile</Link>
 
                   <div className="">
                     <button
                       onClick={handleLogOut}
-                      className=" px-4 py-2 mt-2 mr-2 w-full text-sm font-bold btn  btn-primary bg-sky-800 "
+                      className=" px-4 py-2 mt-2  w-40 text-sm font-bold btn  btn-primary bg-sky-800 "
                     >
                       Logout
                     </button>
@@ -118,13 +118,13 @@ const Navbar = () => {
           <div className="navbar-end flex flex-col lg:flex-row lg:mt-0 ml-20 gap-2 ">
             <Link
               to="/auth/login"
-              className="btn btn-primary bg-sky-800"
+              className="btn btn-primary rounded-2xl bg-sky-800"
             >
               Login
             </Link>
             <Link
               to="/auth/register"
-              className="btn btn-primary w-18 lg:w-22 bg-sky-800 "
+              className="btn btn-primary rounded-2xl w-18 lg:w-22 bg-sky-800 "
             >
               Sign Up
             </Link>
