@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { use, useState } from "react";
 import { Links, NavLink } from "react-router";
 import "./Navbar.css";
 import { Link } from "react-router";
@@ -6,6 +6,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const handleLogOut = () => {
     signOutUser()
       .then((result) => {
@@ -18,6 +19,9 @@ const Navbar = () => {
     // console.log("user trying to logout")
   };
 
+  const handleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
   const links = (
     <>
       <li>
@@ -80,35 +84,50 @@ const Navbar = () => {
       <div className="navbar-center hidden  lg:flex ">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="login-btn   sm:flex-row flex  justify-center items-center ">
-       
+      
+      <div className="login-btn  sm:flex-row flex  justify-center items-center ">
         {user ? (
-          <>
-           <img
-          src={`${ user.photoURL}`}
+          <div className="relative">
+            <img
+              onClick={handleDropdown}
+              src={`${user.photoURL}`}
           title={`${user.displayName}` }
-          className="h-12 w-12  rounded-full hover:scale-105 transition ease-in-out mr-2  lg:mt-0 lg:mr-5"
-          alt=""
-        />
-          <button
-            onClick={handleLogOut}
-            className="btn bg-sky-800 text-white rounded-2xl m-2 mr-5 grid md:flex lg:flex hover:bg-indigo-300"
-          >
-            LogOut
-          </button>
-          </>
-          
+
+              className="h-12 w-12  rounded-full hover:scale-105 transition ease-in-out cursor-pointer mt-10 lg:mt-0 lg:mr-5"
+              alt="User"
+            />
+
+            {isDropdownOpen && (
+              <div className="absolute right-0 mt-1 w-48 z-5 bg-white rounded-md shadow-lg  border border-gray-200">
+                <div className="py-2">
+                  <Link to='/profile' className="btn w-full">My profile</Link>
+
+                  <div className="">
+                    <button
+                      onClick={handleLogOut}
+                      className=" px-4 py-2 mt-2 mr-2 w-full text-sm font-bold btn  btn-primary bg-sky-800 "
+                    >
+                      Logout
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
         ) : (
-          <div className="navbar-end grid md:flex lg:flex">
-            <div className="navbar-end flex  lg:flex-row  lg:mt-0 ml-20 gap-2 ">
-              <Link
-                to="/auth/login"
-                className="btn bg-sky-800 rounded-2xl text-white hover:bg-indigo-300"
-              >
-                Login
-              </Link>
-             
-            </div>
+          <div className="navbar-end flex flex-col lg:flex-row lg:mt-0 ml-20 gap-2 ">
+            <Link
+              to="/auth/login"
+              className="btn btn-primary bg-sky-800"
+            >
+              Login
+            </Link>
+            <Link
+              to="/auth/register"
+              className="btn btn-primary w-18 lg:w-22 bg-sky-800 "
+            >
+              Sign Up
+            </Link>
           </div>
         )}
       </div>
