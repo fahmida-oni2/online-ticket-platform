@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { Links, NavLink } from "react-router";
 import "./Navbar.css";
 import { Link } from "react-router";
@@ -7,6 +7,17 @@ import toast, { Toaster } from "react-hot-toast";
 const Navbar = () => {
   const { user, signOutUser } = use(AuthContext);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+     const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+       useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  // handle theme
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
   const handleLogOut = () => {
     signOutUser()
       .then((result) => {
@@ -29,27 +40,30 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/tickets" className="m-2">
-          All Tickets
-        </NavLink>
-      </li>
+      
 
       
       
 
       {user && (
+        <>
+        <li>
+        <NavLink to="/tickets" className="m-2">
+          All Tickets
+        </NavLink>
+      </li>
         <li>
           <NavLink to="/dashboard" className="m-2">
             Dashboard
           </NavLink>
         </li>
+         </>
       )}
     </>
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm flex justify-between gap-20">
+    <div className="navbar bg-base-100 shadow-sm flex justify-between gap-15">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -76,36 +90,46 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <img src='https://i.ibb.co.com/kVR64Gmr/image.png' className="h-12 w-12  ml-5" alt="" />
-        <Link to="/" className=" text-xl  mr-3 lg:mr-0  font-extrabold text-sky-800">
+        <img src='https://i.ibb.co.com/kVR64Gmr/image.png' className="h-12 w-12 rounded-full  lg:ml-5" alt="" />
+        <Link to="/" className=" text-xl lg:ml-2  lg:mr-0  font-extrabold text-sky-800">
           RailTransit Hub
         </Link>
       </div>
+       <div className="flex justify-center items-center ">
+          <input
+            onChange={(e) => handleTheme(e.target.checked)}
+            type="checkbox"
+            defaultChecked={localStorage.getItem("theme") === "dark"}
+            className="toggle"
+          />
+        </div>
       <div className="navbar-center hidden  lg:flex ">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       
       <div className="login-btn  sm:flex-row flex  justify-center items-center ">
         {user ? (
+          <>
+         
           <div className="relative">
             <img
               onClick={handleDropdown}
               src={`${user.photoURL}`}
           title={`${user.displayName}` }
 
-              className="h-12 w-12  rounded-full hover:scale-105 transition ease-in-out cursor-pointer mt-10 lg:mt-0 lg:mr-5"
+              className="h-12 w-12  rounded-full hover:scale-105 transition ease-in-out cursor-pointer lg:ml-5 lg:mt-0 lg:mr-5"
               alt="User"
             />
 
             {isDropdownOpen && (
               <div className="absolute right-0 mt-1 w-48 z-5 bg-white rounded-md shadow-lg  border border-gray-200">
                 <div className="py-2">
-                  <Link to='/profile' className="btn w-40">My profile</Link>
+                  <Link to='/profile' className="btn w-40 ml-3 rounded-2xl">My profile</Link>
 
                   <div className="">
                     <button
                       onClick={handleLogOut}
-                      className=" px-4 py-2 mt-2  w-40 text-sm font-bold btn  btn-primary bg-sky-800 "
+                      className=" px-4 py-2 mt-2 ml-3 w-40 rounded-2xl text-sm font-bold btn  btn-primary bg-sky-800 "
                     >
                       Logout
                     </button>
@@ -114,8 +138,9 @@ const Navbar = () => {
               </div>
             )}
           </div>
+          </>
         ) : (
-          <div className="navbar-end flex flex-col lg:flex-row lg:mt-0 ml-20 gap-2 ">
+          <div className="navbar-end flex flex-col lg:flex-row lg:mt-0  gap-2 ">
             <Link
               to="/auth/login"
               className="btn btn-primary rounded-2xl bg-sky-800"

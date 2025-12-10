@@ -10,6 +10,8 @@ import AuthLayouts from "../Components/AuthLayouts/AuthLayouts";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
 import MyProfile from "../Pages/MyProfile/MyProfile";
+import Contact from "../Pages/LinkedPages/Contact";
+import About from "../Pages/LinkedPages/About";
 
 export const router = createBrowserRouter([
   {
@@ -24,7 +26,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "/tickets",
-        element: <Tickets></Tickets>,
+        element: <PrivateRoutes>
+            <Tickets></Tickets>
+          </PrivateRoutes>,
       },
       {
         path: "/dashboard",
@@ -42,6 +46,14 @@ export const router = createBrowserRouter([
           </PrivateRoutes>
         ),
       },
+       {
+            path: "/contact",
+            element: <Contact></Contact>,
+          },
+           {
+            path: "/about",
+            element: <About> </About>,
+          },
       {
         path: "/auth",
         element: <AuthLayouts></AuthLayouts>,

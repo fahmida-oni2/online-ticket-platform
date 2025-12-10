@@ -70,10 +70,12 @@ const Register = () => {
           <input name='email' type="email" className="input" placeholder="Email"  required/>
            <label className="label">Photo-URL</label>
           <input name='photo' type="photo" className="input" placeholder="Photo-URL"  required />
+          
+          <label className="label">Password</label>
           <div className='relative'>
-            <label className="label">Password</label>
+            
           <input  name='password' type={show?"text" :"password"} className="input" placeholder="Password"  required />
-          <span onClick={()=> setShow(!show)} className='absolute right-2 top-8  cursor-pointer z-50 '>{show ? <FaEye className='w-10 h-4'></FaEye> :<IoEyeOff className='w-10 h-4'></IoEyeOff> }</span>
+          <span onClick={()=> setShow(!show)} className='absolute right-2 top-3.5  cursor-pointer z-50 '>{show ? <FaEye className='w-10 h-4'></FaEye> :<IoEyeOff className='w-10 h-4'></IoEyeOff> }</span>
           </div>
           <button type='submit' className="btn btn-neutral mt-4 p-5 ">Register</button>
 

@@ -66,7 +66,7 @@ toast.success('Ticket has been removed from your booking list.');
   };
 
     return (
-       <div className=" bg-base-200 min-h-screen">
+       <div className=" bg-base-200  min-h-screen">
            <section>
              <div className=" grid grid-cols-1 space-y-5 ">
                 <div className='flex justify-center items-center m-5'>
@@ -135,7 +135,7 @@ toast.success('Ticket has been removed from your booking list.');
            </section>
             <section className="w-full">
         <div className="pt-10">
-          <h1 className="text-[#001931] text-3xl font-bold text-center py-2">
+          <h1 className=" text-3xl font-bold text-center py-2">
             Your Booking Tickets
           </h1>
           <p className="text-[#627382] text-center">

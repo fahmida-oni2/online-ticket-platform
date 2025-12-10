@@ -73,8 +73,9 @@ const Login = () => {
                 placeholder="Email"
                 required
               />
+              <label className="label  ">Password</label>
               <div className="relative">
-                <label className="label  ">Password</label>
+                
                 <input
                   name="password"
                   type={show ? "text" : "password"}
@@ -84,7 +85,7 @@ const Login = () => {
                 />
                 <span
                   onClick={() => setShow(!show)}
-                  className="absolute right-2 top-8  cursor-pointer z-50 "
+                  className="absolute right-2 top-3  cursor-pointer z-50 "
                 >
                   {show ? (
                     <FaEye className="w-10 h-4"></FaEye>
@@ -93,11 +94,11 @@ const Login = () => {
                   )}
                 </span>
               </div>
-              <div>
+              <div className="text-left mt-2">
                 <button
                   onClick={handleForgotPassword}
                   type="submit"
-                  className="link link-hover text-sm"
+                  className="link link-hover  text-sm"
                 >
                   Forgot password?
                 </button>
@@ -142,7 +143,7 @@ const Login = () => {
             Login with Google
           </button>
 
-          <p className="mt-3 font-semibold text-center">
+          <p className="mb-3 font-semibold text-center">
             Don't have account?{" "}
             <Link to="/auth/register" className="text-blue-600">
               Register
