@@ -90,7 +90,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <img src='https://i.ibb.co.com/kVR64Gmr/image.png' className="h-12 w-12 rounded-full  lg:ml-5" alt="" />
+        <img src='https://i.ibb.co.com/kVR64Gmr/image.png' className="h-12 w-12 rounded-full  :ml-5" alt="" />
         <Link to="/" className=" text-xl lg:ml-2  lg:mr-0  font-extrabold text-sky-800">
           RailTransit Hub
         </Link>
@@ -107,7 +107,7 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       
-      <div className="login-btn  sm:flex-row flex  justify-center items-center ">
+      <div className="login-btn  sm:flex-row flex mr-5  justify-center items-center ">
         {user ? (
           <>
          
@@ -147,12 +147,7 @@ const Navbar = () => {
             >
               Login
             </Link>
-            <Link
-              to="/auth/register"
-              className="btn btn-primary rounded-2xl w-18 lg:w-22 bg-sky-800 "
-            >
-              Sign Up
-            </Link>
+            
           </div>
         )}
       </div>

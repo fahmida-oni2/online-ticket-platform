@@ -11,7 +11,7 @@ const Root = () => {
       <header className="sticky top-0 z-50 ">
         <Navbar></Navbar>
       </header>
-      <section className="min-h-screen  ">
+      <section className="min-h-screen ml-5 mr-5 ">
         {state == "loading" ? <Loading></Loading> : <Outlet></Outlet>}
       </section>
       <Footer></Footer>
