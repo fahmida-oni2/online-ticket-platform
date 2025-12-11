@@ -1,8 +1,8 @@
 import React from "react";
-import Navbar from "../Components/Navbar/Navbar";
-import Loading from "../Components/Loading/Loading";
+import Navbar from "../../Components/Navbar/Navbar";
+import Loading from "../../Components/Loading/Loading";
 import { Outlet, useNavigation } from "react-router";
-import Footer from "../Components/Footer/Footer";
+import Footer from "../../Components/Footer/Footer";
 
 const Root = () => {
   const { state } = useNavigation();
