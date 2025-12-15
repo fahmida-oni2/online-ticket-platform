@@ -8,11 +8,12 @@ import { MdRateReview } from "react-icons/md";
 import { SiGoogletagmanager } from "react-icons/si";
 import { GrUserManager } from "react-icons/gr";
 import { RiAdvertisementFill } from "react-icons/ri";
+import Footer from "../../Components/Footer/Footer";
 
 const DashboardLayout = () => {
   return (
     <>
-      <div className="drawer lg:drawer-open">
+      <div className="drawer lg:drawer-open min-h-screen">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
           {/* Navbar */}
@@ -147,6 +148,7 @@ const DashboardLayout = () => {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 };
