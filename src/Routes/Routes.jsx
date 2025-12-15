@@ -14,6 +14,13 @@ import About from "../Pages/LinkedPages/About";
 import MyTickets from "../Pages/Dashboard/MyTickets/MyTickets";
 import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
 import TransHistory from "../Pages/Dashboard/TransHistory/TransHistory";
+import AddTickets from "../Pages/Dashboard/AddTickets/AddTickets";
+import MyAddedTickets from "../Pages/Dashboard/MyAddedTickets/MyAddedTickets";
+import ReqBookings from "../Pages/Dashboard/ReqBookings/ReqBookings";
+import Revenue from "../Pages/Dashboard/Revenue/Revenue";
+import ManageTickets from "../Pages/Dashboard/ManageTickets/ManageTickets";
+import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
+import AdvertiseTickets from "../Pages/Dashboard/AdvertiseTickets/AdvertiseTickets";
 
 export const router = createBrowserRouter([
   {
@@ -55,8 +62,11 @@ export const router = createBrowserRouter([
   },
 
   {
+   
     path: "/auth",
     element: <AuthLayouts></AuthLayouts>,
+     errorElement: <ErrorPage></ErrorPage>,
+    hydrateFallbackElement: <Loading></Loading>,
     children: [
       {
         path: "/auth/login",
@@ -76,6 +86,8 @@ export const router = createBrowserRouter([
         <DashboardLayout></DashboardLayout>
       </PrivateRoutes>
     ),
+     errorElement: <ErrorPage></ErrorPage>,
+    hydrateFallbackElement: <Loading></Loading>,
 
     children: [
       {
@@ -86,6 +98,36 @@ export const router = createBrowserRouter([
         path: "trans-history",
         element: <TransHistory></TransHistory>,
       },
+       {
+        path: "add-tickets",
+        element: <AddTickets></AddTickets>,
+        loader:()=> fetch('/service.json')
+      },
+      {
+        path: "myAdded-tickets",
+        element: <MyAddedTickets></MyAddedTickets>,
+      },
+       {
+        path: "requested-bookings",
+        element: <ReqBookings></ReqBookings>,
+      },
+        {
+        path: "revenue",
+        element: <Revenue></Revenue>,
+      },
+       {
+        path: "manage-tickets",
+        element: <ManageTickets></ManageTickets>,
+      },
+       {
+        path: "manage-users",
+        element: <ManageUsers></ManageUsers>,
+      },
+       {
+        path: "advertise-tickets",
+        element: <AdvertiseTickets></AdvertiseTickets>,
+      },
+
     ],
   },
 ]);

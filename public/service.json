@@ -1,0 +1,166 @@
+[
+  {
+    "region": "Dhaka",
+    "district": "Dhaka",
+    "city_name": "Dhaka",
+    "latitude": 23.8103,
+    "longitude": 90.4125,
+    "covered_areas": [
+      "DAC (Airport)",
+      "DHAKA-KMP (Kamalapur R.S.)",
+      "GABTOLI (Bus Terminal)",
+      "SAYEDABAD (Bus Terminal)",
+      "KALLYANPUR (Bus Point)",
+      "MOHAKHALI (Bus Terminal)"
+    ]
+  },
+  {
+    "region": "Chattogram",
+    "district": "Chattogram",
+    "city_name": "Chattogram",
+    "latitude": 22.3569,
+    "longitude": 91.8123,
+    "covered_areas": [
+      "CGP (Airport)",
+      "CHT (R.S.)",
+      "CHT-B (Bus Point)",
+      "DAMPARA (Bus Terminal)"
+    ]
+  },
+  {
+    "region": "Rajshahi",
+    "district": "Rajshahi",
+    "city_name": "Rajshahi",
+    "latitude": 24.3745,
+    "longitude": 88.6087,
+    "covered_areas": [
+      "RAJSH-S (R.S.)",
+      "RSH (R.S.)"
+    ]
+  },
+  {
+    "region": "Sylhet",
+    "district": "Sylhet",
+    "city_name": "Sylhet",
+    "latitude": 24.8949,
+    "longitude": 91.8662,
+    "covered_areas": [
+      "ZYL (Airport)",
+      "SYL (R.S.)",
+      "SYLHET-P (Bus Point)",
+      "KADAMTALI (Bus Terminal)"
+    ]
+  },
+  {
+    "region": "Khulna",
+    "district": "Khulna",
+    "city_name": "Khulna",
+    "latitude": 22.8456,
+    "longitude": 89.5672,
+    "covered_areas": [
+      "KLN (R.S.)",
+      "RUPSHA (Bus Point)"
+    ]
+  },
+  {
+    "region": "Chattogram",
+    "district": "Cox's Bazar",
+    "city_name": "Cox's Bazar",
+    "latitude": 21.4272,
+    "longitude": 92.0165,
+    "covered_areas": [
+      "CXB (Airport)"
+    ]
+  },
+  {
+    "region": "Khulna",
+    "district": "Jessore",
+    "city_name": "Jessore",
+    "latitude": 23.1700,
+    "longitude": 89.2167,
+    "covered_areas": [
+      "JSR (Airport)",
+      "JSR-C (Bus Point)"
+    ]
+  },
+  {
+    "region": "Barisal",
+    "district": "Barisal",
+    "city_name": "Barisal",
+    "latitude": 22.7010,
+    "longitude": 90.3535,
+    "covered_areas": [
+      "BAR (Bus Terminal)"
+    ]
+  },
+  {
+    "region": "Rajshahi",
+    "district": "Bogura",
+    "city_name": "Bogura",
+    "latitude": 24.8465,
+    "longitude": 89.3773,
+    "covered_areas": [
+      "BOG (Bus Terminal)"
+    ]
+  },
+  {
+    "region": "Chattogram",
+    "district": "Feni",
+    "city_name": "Feni",
+    "latitude": 23.0167,
+    "longitude": 91.4000,
+    "covered_areas": [
+      "FENI-S (Bus Point)"
+    ]
+  },
+  {
+    "region": "Rangpur",
+    "district": "Dinajpur",
+    "city_name": "Dinajpur",
+    "latitude": 25.6275,
+    "longitude": 88.6414,
+    "covered_areas": [
+      "DNJ (R.S.)"
+    ]
+  },
+  {
+    "region": "Dhaka",
+    "district": "Kishoreganj",
+    "city_name": "Kishoreganj",
+    "latitude": 24.4260,
+    "longitude": 90.7829,
+    "covered_areas": [
+      "KIS (Bus Point)"
+    ]
+  },
+  {
+    "region": "Mymensingh",
+    "district": "Mymensingh",
+    "city_name": "Mymensingh",
+    "latitude": 24.7539,
+    "longitude": 90.3987,
+    "covered_areas": [
+      "MYM (R.S.)"
+    ]
+  },
+  {
+    "region": "Rangpur",
+    "district": "Rangpur",
+    "city_name": "Rangpur",
+    "latitude": 25.7460,
+    "longitude": 89.2752,
+    "covered_areas": [
+      "RNG-S (Bus Point)"
+    ]
+  },
+  {
+    "region": "Chattogram",
+    "district": "Cumilla",
+    "city_name": "Cumilla",
+    "latitude": 23.4573,
+    "longitude": 91.1809,
+    "covered_areas": [
+      "CUM-T (Bus Point)"
+    ]
+  }
+]
