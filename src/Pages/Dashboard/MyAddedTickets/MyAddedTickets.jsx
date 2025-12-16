@@ -1,48 +1,79 @@
-import React, { use, useEffect, useState } from "react";
+import React, { use, useState} from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 import Loading from "../../../Components/Loading/Loading";
-import VendorCard from "../../../Components/VendorCard/VendorCard";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import toast, { Toaster } from "react-hot-toast";
+import Swal from "sweetalert2";
+import VendorCard from "../../../Components/VendorCard/VendorCard";
+import UpdateTicket from "../../UpdateTicket/UpdateTicket";
 
 const MyAddedTickets = () => {
   const { user } = use(AuthContext);
   const axiosSecure = useAxiosSecure();
-  const [tickets, setTickets] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const queryClient = useQueryClient();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+    const [editingTicket, setEditingTicket] = useState(null);
+  const {isPending,data:tickets } = useQuery({
+    queryKey: ['my-tickets', user?.email],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/my-tickets?email=${user.email}`);
+      return res.data;
+    } ,
+    enabled: !!user?.email,
 
-  useEffect(() => {
-    if (!user?.email) {
-      setLoading(false);
-      return;
-    }
+  });
+  const deleteTicketMutation = useMutation({
+    mutationFn: async (id) => {
+      const res = await axiosSecure.delete(`/all-tickets/${id}`);
+      return res.data;
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['my-tickets'] }); 
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your ticket has been deleted and the list is updated.",
+        icon: "success",
+      });
+    },
 
-    const fetchTickets = async () => {
-      setLoading(true);
+    onError: (error) => {
+      toast.error("Error deleting ticket.");
+    },
+  });
 
-      try {
-        const response = await axiosSecure.get("/my-tickets", {
-          params: {
-            email: user.email, 
-          },
-        });
 
-        setTickets(response.data);
-      } catch (err) {
-        setTickets([]);
-      } finally {
-        setLoading(false);
+
+    const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+ if (result.isConfirmed) {
+        deleteTicketMutation.mutate(id);
       }
+    });
+  };
+
+  const handleEdit = (ticketData) => {
+        setEditingTicket(ticketData);
+        setIsModalOpen(true);
     };
 
-    fetchTickets();
-
-  }, [user?.email, axiosSecure]); 
-
-  if (loading) {
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+        setEditingTicket(null);
+    };
+  if (isPending) {
     return <Loading></Loading>;
   }
   return (
-    <div>
+    <>
       <h1 className="text-center font-bold text-3xl mt-5">Your Tickets</h1>
       <div className="">
         {tickets.length === 0 ? (
@@ -50,12 +81,21 @@ const MyAddedTickets = () => {
         ) : (
           <div className="grid grid-cols-1  lg:grid-cols-3 ">
             {tickets.map((ticket) => (
-              <VendorCard key={ticket._id} ticket={ticket}></VendorCard>
+              <VendorCard key={ticket._id} ticket={ticket} onDelete={handleDelete} onEdit={handleEdit}></VendorCard>
             ))}
           </div>
+       
         )}
       </div>
-    </div>
+
+      {isModalOpen && editingTicket && (
+                <UpdateTicket
+                    ticket={editingTicket}
+                    onClose={handleCloseModal}
+                />
+            )}
+            <Toaster />
+    </>
   );
 };
 

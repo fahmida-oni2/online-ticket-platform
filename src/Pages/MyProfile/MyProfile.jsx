@@ -1,34 +1,18 @@
-import React, { use, useEffect, useState } from 'react';
+import React, { use, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import userImg from '../../assets/user.png'
 import toast, { Toaster } from 'react-hot-toast';
 import Loading from '../../Components/Loading/Loading';
 
 const MyProfile = () => {
-    const [enrolled, setEnrolled] = useState([]);
+
     const {user,loading, updateUser,setUser} = use(AuthContext);
     const [isUpdating, setIsUpdating] = useState(false);
     const [newName, setNewName] = useState(user?.displayName || '');
     const [newPhotoURL, setNewPhotoURL] = useState(user?.photoURL || '');
-     useEffect(() => {
-    const savedSkills = JSON.parse(localStorage.getItem('enroll'));
-    if (savedSkills) {
-      setEnrolled(savedSkills);
-    }
-  }, []);
-    if (loading) {
-        return <Loading></Loading>; 
-    }
-    if (!user) {
-        return <div>Please log in to view your profile.</div>;
-    }
-    const displayName = user.displayName || 'User Name Not Set';
-    const email = user.email || 'Email Not Available';
-    const userImage = user.photoURL ? user.photoURL : userImg;
-   
+  
 
-
-    const handleUpdateSubmit =(e)=>{
+         const handleUpdateSubmit =(e)=>{
          e.preventDefault();
          const updateData = {};
         if (newName && newName !== user.displayName) {
@@ -56,14 +40,19 @@ const MyProfile = () => {
             });
 
     };
-     const handleRemove = (skillId) => {
-const existing = JSON.parse(localStorage.getItem('enroll')) || [];
-const updated = existing.filter((s) => String(s.skillId) !== String(skillId));
-setEnrolled(updated);
-localStorage.setItem('enroll', JSON.stringify(updated));
-toast.success('Ticket has been removed from your booking list.');
+    if (loading) {
+        return <Loading></Loading>; 
+    }
+    if (!user) {
+        return <div>Please log in to view your profile.</div>;
+    }
+    const displayName = user.displayName || 'User Name Not Set';
+    const email = user.email || 'Email Not Available';
+    const userImage = user.photoURL ? user.photoURL : userImg;
+   
 
-  };
+
+
 
     return (
        <div className=" bg-base-200  min-h-screen">
@@ -133,56 +122,7 @@ toast.success('Ticket has been removed from your booking list.');
                 </div>
             </div>
            </section>
-            <section className="w-full">
-        <div className="pt-10">
-          <h1 className=" text-3xl font-bold text-center py-2">
-            Your Booking Tickets
-          </h1>
-          <p className="text-[#627382] text-center">
-            View and manage the tickets you are booking.
-          </p>
-        </div>
-
-        <div className="space-y-3 p-5">
-          {enrolled.length > 0 ? (
-            enrolled.map((s) => (
-              <div
-                key={s.skillId}
-                className="card card-side bg-base-100 shadow-sm grid lg:flex"
-              >
-                <figure className="mr-5 w-40 h-40">
-                  <img
-                    className="p-3 flex items-center object-cover"
-                    src={s.image}
-                    alt={s.skillName}
-                  />
-                </figure>
-
-                <div className="card-body">
-                  <h1 className="font-bold text-xl">{s.skillName}</h1>
-                  <p className="text-sm text-gray-600">
-                    Provided by: <span className="font-semibold">{s.providerName}</span>
-                  </p>
-                  <p className="text-sm text-gray-600">Category: {s.category}</p>
-                </div>
-
-                <div className="flex items-center pr-5">
-                  <button
-                    onClick={() => handleRemove(s.skillId)}
-                    className="btn bg-sky-800 rounded-2xl text-white"
-                  >
-                    Unenroll
-                  </button>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-center text-gray-500 text-lg mt-10">
-              You haven’t booked  any tickets yet.
-            </p>
-          )}
-        </div>
-              </section>
+           
              <Toaster></Toaster>
         </div>
         

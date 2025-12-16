@@ -21,6 +21,7 @@ import Revenue from "../Pages/Dashboard/Revenue/Revenue";
 import ManageTickets from "../Pages/Dashboard/ManageTickets/ManageTickets";
 import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
 import AdvertiseTickets from "../Pages/Dashboard/AdvertiseTickets/AdvertiseTickets";
+import TicketDetails from "../Pages/TicketDetails/TicketDetails";
 
 export const router = createBrowserRouter([
   {
@@ -42,14 +43,14 @@ export const router = createBrowserRouter([
         ),
       },
 
-      {
-        path: "/profile",
-        element: (
-          <PrivateRoutes>
-            <MyProfile></MyProfile>
-          </PrivateRoutes>
-        ),
-      },
+         {
+            path:'/all-tickets/:id',
+           element: (
+          <PrivateRoutes><TicketDetails></TicketDetails></PrivateRoutes>
+           ),
+          
+        },
+
       {
         path: "/contact",
         element: <Contact></Contact>,
@@ -62,10 +63,9 @@ export const router = createBrowserRouter([
   },
 
   {
-   
     path: "/auth",
     element: <AuthLayouts></AuthLayouts>,
-     errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     hydrateFallbackElement: <Loading></Loading>,
     children: [
       {
@@ -86,10 +86,14 @@ export const router = createBrowserRouter([
         <DashboardLayout></DashboardLayout>
       </PrivateRoutes>
     ),
-     errorElement: <ErrorPage></ErrorPage>,
+    errorElement: <ErrorPage></ErrorPage>,
     hydrateFallbackElement: <Loading></Loading>,
 
     children: [
+      {
+        path: "profile",
+        element: <MyProfile></MyProfile>,
+      },
       {
         path: "my-tickets",
         element: <MyTickets></MyTickets>,
@@ -98,36 +102,36 @@ export const router = createBrowserRouter([
         path: "trans-history",
         element: <TransHistory></TransHistory>,
       },
-       {
+      {
         path: "add-tickets",
         element: <AddTickets></AddTickets>,
-        loader:()=> fetch('/service.json')
+        loader: () => fetch("/service.json"),
       },
       {
         path: "myAdded-tickets",
         element: <MyAddedTickets></MyAddedTickets>,
       },
-       {
+      {
         path: "requested-bookings",
         element: <ReqBookings></ReqBookings>,
       },
-        {
+      {
         path: "revenue",
         element: <Revenue></Revenue>,
       },
-       {
+      {
         path: "manage-tickets",
         element: <ManageTickets></ManageTickets>,
       },
-       {
+      {
         path: "manage-users",
         element: <ManageUsers></ManageUsers>,
       },
-       {
+      {
         path: "advertise-tickets",
         element: <AdvertiseTickets></AdvertiseTickets>,
       },
-
+       
     ],
   },
 ]);
