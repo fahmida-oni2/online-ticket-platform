@@ -19,7 +19,7 @@ const VendorCard = ({ ticket, onDelete,onEdit }) => {
   } = ticket;
   return (
     <div className="card  bg-base-100 border-gray-300 shadow-xl  hover:scale-105 transition ease-in-out m-5 ">
-     <Link to={`/all-tickets/${ticket._id}`}>
+     <div >
         <div className="card-body space-y-3">
           <h2 className="text-2xl font-bold text-center">
             {ticketTitle}{" "}
@@ -50,7 +50,12 @@ const VendorCard = ({ ticket, onDelete,onEdit }) => {
             >
               <RxUpdate /> Update
             </button>
-
+               <Link 
+               to={`/all-tickets/${ticket._id}`}
+              className="inline-flex items-center w-25 px-8 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 mr-3"
+            >
+              View
+            </Link>
             <button
               onClick={() => onDelete(_id)}
               className="inline-flex items-center  py-2 px-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-150"
@@ -59,7 +64,7 @@ const VendorCard = ({ ticket, onDelete,onEdit }) => {
             </button>
           </div>
         </div>
-      </Link>
+      </div>
 
       <Toaster></Toaster>
     </div>
