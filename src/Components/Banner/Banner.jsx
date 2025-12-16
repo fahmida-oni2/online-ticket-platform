@@ -35,18 +35,12 @@ const Banner = () => {
             <div className="hero-content text-neutral-content flex justify-center items-center p-4">
               <div className="space-y-6 text-center lg:text-left lg:mr-10 ">
                 <h1 className="mb-10 text-5xl font-bold  animate__animated animate__fadeInLeft">
-                  RailTransitHub: Train Travel All In One Place
+                  TicketHub: Fly, Drive, or Ride in Just One Click
                 </h1>
                 <p className="mb-5 lg:text-2xl font-bold animate__animated animate__fadeInRight">
-                  The Center for Seamless Train Travel.
+                  The Center for Seamless Global Travel.
                 </p>
-                <Link
-                  to="/auth/register"
-                  className="btn bg-sky-800 mr-5 rounded-2xl text-white w-40  hover:bg-indigo-300"
-                >
-                  <IoLogIn />
-                  Get Started
-                </Link>
+              
               </div>
             </div>
           </div>
@@ -63,7 +57,7 @@ const Banner = () => {
 
             <div className="space-y-6 text-center lg:text-left lg:mr-10">
               <h2 className="text-5xl text-center lg:text-6xl font-bold ">
-                What RailTransitHub Offers?
+                What TicketHub Offers?
               </h2>
               <p className="text-center lg:text-2xl">
                 Seamless booking, modification, and management of tickets,

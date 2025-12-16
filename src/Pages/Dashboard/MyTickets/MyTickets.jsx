@@ -17,7 +17,7 @@ const MyTickets = () => {
       const res = await axiosSecure.get(`/my-bookings?email=${user.email}`);
       return res.data;
     } ,
-    enabled: !!user?.email,
+    enabled: !!user?.email, 
 
   });
    

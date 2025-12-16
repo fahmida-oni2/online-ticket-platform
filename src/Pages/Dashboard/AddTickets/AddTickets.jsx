@@ -57,7 +57,7 @@ const AddTickets = () => {
   return (
     <>
       <div className="max-w-xl mx-auto my-10 p-6 bg-white rounded-xl shadow-2xl border border-gray-100">
-        <h2 className="text-3xl text-center font-extrabold text-black mb-6  pb-3">
+        <h2 className="text-3xl text-center font-extrabold text-sky-800 mb-6  pb-3">
           Add New Ticket
         </h2>
         <form onSubmit={handleSubmit(handleAdded)} className="space-y-4">
@@ -261,7 +261,7 @@ const AddTickets = () => {
           {/* Add Ticket Button */}
           <input
             type="submit"
-            className="btn bg-sky-800 w-full mt-8 text-black"
+            className="btn bg-sky-800 w-full mt-8 text-white"
             value="Add Ticket"
           />
         </form>
