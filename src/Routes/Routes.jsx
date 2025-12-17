@@ -22,6 +22,9 @@ import ManageTickets from "../Pages/Dashboard/ManageTickets/ManageTickets";
 import ManageUsers from "../Pages/Dashboard/ManageUsers/ManageUsers";
 import AdvertiseTickets from "../Pages/Dashboard/AdvertiseTickets/AdvertiseTickets";
 import TicketDetails from "../Pages/TicketDetails/TicketDetails";
+import Payment from "../Pages/Dashboard/Payment/Payment";
+import PaymentSuccess from "../Pages/Dashboard/Payment/PaymentSuccess";
+import PaymentCancelled from "../Pages/Dashboard/Payment/PaymentCancelled";
 
 export const router = createBrowserRouter([
   {
@@ -97,6 +100,18 @@ export const router = createBrowserRouter([
       {
         path: "my-tickets",
         element: <MyTickets></MyTickets>,
+      },
+       {
+        path: "payment/:ticketId",
+        element: <Payment></Payment>,
+      },
+      {
+        path: "payment-success",
+        element:<PaymentSuccess></PaymentSuccess>,
+      },
+      {
+        path: "payment-cancelled",
+        element:<PaymentCancelled></PaymentCancelled>,
       },
       {
         path: "trans-history",

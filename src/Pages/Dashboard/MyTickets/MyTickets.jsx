@@ -68,7 +68,7 @@ if (isPending) {
             Your Booking Tickets
           </h1>
           <p className="text-[#627382] text-center">
-            View and manage the tickets you are booking.
+            Manage the tickets you are booking.
           </p>
         </div>
             <div className="">

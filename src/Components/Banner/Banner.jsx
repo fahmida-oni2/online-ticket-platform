@@ -26,9 +26,9 @@ const Banner = () => {
       >
         <SwiperSlide>
           <div
-            className="hero h-100"
+            className="hero  h-[500px] bg-no-repeat bg-center bg-contain"
             style={{
-              backgroundImage: "url(https://i.ibb.co.com/qL29b15k/B1.png)",
+              backgroundImage: "url(https://i.ibb.co.com/20Kt7hp1/1st.jpg)",
             }}
           >
             <div className="hero-overlay "></div>
@@ -46,16 +46,16 @@ const Banner = () => {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className=" mt-10">
-            <div className="flex justify-center items-center">
-              <img
-                src="https://i.ibb.co.com/cXrVhDdg/B2.png"
-                alt=""
-                className="h-30 w-30 rounded-full"
-              />
-            </div>
+            <div
+            className="hero  h-[500px] bg-no-repeat bg-center bg-contain"
+            style={{
+              backgroundImage: "url(https://i.ibb.co.com/ZRNtDsFh/3rd.jpg)",
+            }}
+          >
 
-            <div className="space-y-6 text-center lg:text-left lg:mr-10">
+        <div className="hero-overlay "></div>
+            <div className="hero-content text-neutral-content flex justify-center items-center p-4">
+               <div className="space-y-6 text-center lg:text-left lg:mr-10">
               <h2 className="text-5xl text-center lg:text-6xl font-bold ">
                 What TicketHub Offers?
               </h2>
@@ -65,30 +65,20 @@ const Banner = () => {
                 one convenient location.
               </p>
             </div>
-          </div>
+            </div>
+           </div>
+         
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="   mt-10 ">
-            <div className="space-y-6 text-center lg:text-left lg:mr-10">
-              <h2 className="text-5xl lg:text-6xl font-bold text-center ">
-                Book your tickets now!
-              </h2>
-              <div className="flex justify-center items-center">
-                <Link
-                  to="/tickets"
-                  className="btn bg-sky-800 text-white rounded-2xl w-40  hover:bg-indigo-300"
-                >
-                  Book
-                </Link>
-              </div>
-            </div>
+         <div
+            className="hero  h-[500px] bg-no-repeat bg-center bg-contain"
+            style={{
+              backgroundImage: "url(https://i.ibb.co.com/20Kt7hp1/1st.jpg)",
+            }}
+          >
             <div className="flex justify-center items-center">
-              <img
-                src="https://i.ibb.co.com/C3wzT56V/B4.png"
-                alt=""
-                className="h-50 w-50 rounded-full mt-5"
-              />
+              <p>Book Now</p>
             </div>
           </div>
         </SwiperSlide>
