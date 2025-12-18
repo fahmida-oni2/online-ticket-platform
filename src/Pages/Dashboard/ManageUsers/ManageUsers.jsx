@@ -1,10 +1,13 @@
 import React from 'react';
 
 const ManageUsers = () => {
+    
+
+  
     return (
-        <div>
-            manage user
-        </div>
+       <div>
+        users
+       </div>
     );
 };
 

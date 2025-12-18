@@ -42,11 +42,27 @@ const AddTickets = () => {
       const res = await axiosSecure.post("/tickets", ticketData);
 
       if (res.status === 200 || res.status === 201) {
+        const vendorInfo = {
+        vendorName: user?.displayName,
+        vendorEmail: user?.email,
+        ticketTitle: data.ticketTitle,
+         fromLocation: data.fromLocation,
+      toLocation: data.toLocation,
+      transportType: data.transportType,
+      price: parseFloat(data.price),
+      quantity: parseInt(data.quantity),
+      departureDate: data.date,
+      departureTime: data.departureTime,
+      perks: data.perks || [],
+      imageUrl: data.image,
+      };
+      await axiosSecure.post("/vendor", vendorInfo);
+      await axiosSecure.patch(`/users/role/${user?.email}`, { role: 'vendor' });
         toast.success("Ticket has been added successfully .");
         reset();
       } else {
         toast.error(
-          "Ticket submission failed. Please check the server response."
+          "Failed to add ticket."
         );
       }
     } catch (err) {

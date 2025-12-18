@@ -14,18 +14,18 @@ const MyAddedTickets = () => {
   const queryClient = useQueryClient();
   const [isModalOpen, setIsModalOpen] = useState(false);
     const [editingTicket, setEditingTicket] = useState(null);
-  const {isPending,data:tickets } = useQuery({
-    queryKey: ['my-tickets', user?.email],
+
+ const { isPending, data: tickets,refetch = [] } = useQuery({
+    queryKey: ["my-tickets", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/my-tickets?email=${user.email}`);
       return res.data;
-    } ,
+    },
     enabled: !!user?.email,
-
   });
   const deleteTicketMutation = useMutation({
     mutationFn: async (id) => {
-      const res = await axiosSecure.delete(`/all-tickets/${id}`);
+      const res = await axiosSecure.delete(`/vendor/${id}`);
       return res.data;
     },
     onSuccess: () => {
@@ -75,23 +75,24 @@ const MyAddedTickets = () => {
   return (
     <>
       <h1 className="text-center font-bold text-3xl mt-5">Your Tickets</h1>
-      <div className="">
-        {tickets.length === 0 ? (
-          <p className="text-center">No tickets found for your account.</p>
-        ) : (
-          <div className="grid grid-cols-1  lg:grid-cols-3 ">
-            {tickets.map((ticket) => (
-              <VendorCard key={ticket._id} ticket={ticket} onDelete={handleDelete} onEdit={handleEdit}></VendorCard>
-            ))}
-          </div>
-       
-        )}
-      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+  {tickets.map((ticket) => {
+    return (
+      <VendorCard 
+        key={ticket._id} 
+        ticket={ticket} 
+        onDelete={handleDelete} 
+        onEdit={handleEdit} 
+      />
+    );
+  })}
+</div>
 
       {isModalOpen && editingTicket && (
                 <UpdateTicket
                     ticket={editingTicket}
                     onClose={handleCloseModal}
+                    refetch = {refetch}
                 />
             )}
             <Toaster />

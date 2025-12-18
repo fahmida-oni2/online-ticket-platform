@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 
-const ModalOverlay = ({ children, onClose }) => (
+const ModalOverlay = ({ children, onClose}) => (
   <div
     className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
     onClick={onClose}
@@ -16,10 +16,10 @@ const ModalOverlay = ({ children, onClose }) => (
     </div>
   </div>
 );
-const UpdateTicket = ({ ticket, onClose }) => {
+const UpdateTicket = ({ ticket, onClose,refetch  }) => {
   const queryClient = useQueryClient();
   const axiosSecure = useAxiosSecure();
-  const { data: serviceArea = [], isLoading:isAreaLoading } = useQuery({
+  const { data: serviceArea = [], isLoading: isAreaLoading } = useQuery({
     queryKey: ["serviceArea"],
     queryFn: async () => {
       const res = await fetch("/service.json");
@@ -68,10 +68,16 @@ const UpdateTicket = ({ ticket, onClose }) => {
   };
   const updateMutation = useMutation({
     mutationFn: (updatedData) => {
-      return axiosSecure.patch(`/all-tickets/${ticket._id}`, updatedData);
+      return axiosSecure.patch(
+        `/vendor/edit-ticket/${ticket._id}`,
+        updatedData
+      );
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["my-tickets"] });
+      queryClient.invalidateQueries({ queryKey: ["vendor"] });
+      if (refetch) {
+        refetch(); 
+      }
       toast.success("Ticket updated successfully!");
       onClose();
     },
@@ -214,7 +220,6 @@ const UpdateTicket = ({ ticket, onClose }) => {
                     value={perk.value}
                     checked={formData.perks.includes(perk.value)}
                     onChange={handleChange}
-                   
                     className="checkbox"
                     disabled={updateMutation.isPending}
                   />
