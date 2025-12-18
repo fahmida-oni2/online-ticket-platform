@@ -64,7 +64,7 @@ const MyProfile = () => {
                     <img
                     src={userImage}
                     alt={displayName}
-                    className="rounded-full shadow-2xlr"
+                    className="rounded-full shadow-2xlr w-50 h-50"
                 /></div>
                 <div className='flex flex-col items-center'>
                     <h1 className="text-3xl font-bold text-center">{displayName}</h1>

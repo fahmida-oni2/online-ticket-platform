@@ -17,7 +17,7 @@ const BookingCard = ({ ticket, onDelete }) => {
     departureDate,
     departureTime,
     _id,
-    bookingStatus,
+    status,
   
   } = ticket;
   const { countdown, isPassed } = useCountdown(
@@ -27,8 +27,8 @@ const BookingCard = ({ ticket, onDelete }) => {
 
   const totalPrice = (unitPrice || 0) * (bookingQuantity || 0);
   const isTicketExpired = isPassed;
-  const isPayNowDisabled = isTicketExpired || bookingStatus !== "accepted";
-  const showCountdown = bookingStatus !== "rejected";
+  const isPayNowDisabled = isTicketExpired || status !== "accepted";
+  const showCountdown = status !== "rejected";
 
   const formatCountdown = () => {
     if (isTicketExpired) return "EXPIRED";
@@ -39,7 +39,7 @@ const BookingCard = ({ ticket, onDelete }) => {
   };
 
   let statusColor = "text-gray-600";
-  switch (bookingStatus?.toLowerCase()) {
+  switch (status?.toLowerCase()) {
     case "accepted":
       statusColor = "text-green-600 font-bold";
       break;
@@ -75,7 +75,7 @@ const BookingCard = ({ ticket, onDelete }) => {
           <p className="text-center text-xl">
             <strong>Status:</strong>{" "}
             <span className={statusColor}>
-              {bookingStatus?.toUpperCase() || "N/A"}
+              {status?.toUpperCase() || "N/A"}
             </span>
           </p>
 
@@ -122,7 +122,7 @@ const BookingCard = ({ ticket, onDelete }) => {
       <div className="px-6 pb-6 pt-4 border-t">
         {/* Pay Buttons */}
         <div className="flex justify-between items-center">
-          {bookingStatus?.toLowerCase() === "accepted" && (
+          {status?.toLowerCase() === "accepted" && (
             <Link
               to={!isPayNowDisabled ? `/dashboard/payment/${_id}` : "#"}
               className={`inline-flex items-center px-3 py-2 border border-transparent text-sm rounded-2xl font-semibold transition duration-200 ${
@@ -135,7 +135,7 @@ const BookingCard = ({ ticket, onDelete }) => {
             </Link>
           )}
 
-          {(bookingStatus?.toLowerCase() !== "accepted" ||
+          {(status?.toLowerCase() !== "accepted" ||
             isPayNowDisabled) && <div className="w-1/2"></div>}
 
           {/* Delete Button */}
