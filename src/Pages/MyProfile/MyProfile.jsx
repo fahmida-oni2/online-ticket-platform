@@ -3,8 +3,10 @@ import { AuthContext } from '../../Provider/AuthProvider';
 import userImg from '../../assets/user.png'
 import toast, { Toaster } from 'react-hot-toast';
 import Loading from '../../Components/Loading/Loading';
+import useRole from '../../Hooks/useRole';
 
 const MyProfile = () => {
+ const {role}= useRole()
 
     const {user,loading, updateUser,setUser} = use(AuthContext);
     const [isUpdating, setIsUpdating] = useState(false);
@@ -66,7 +68,8 @@ const MyProfile = () => {
                 /></div>
                 <div className='flex flex-col items-center'>
                     <h1 className="text-3xl font-bold text-center">{displayName}</h1>
-                    <h3 className='text-xl font-bold mb-4'>Email: {email}</h3>
+                    <h3 className='text-xl font-bold '>Email: {email}</h3>
+                     <h3 className='text-xl font-bold mb-4'>Role: {role}</h3>
                     <div className='flex items-center justify-center'>
                         <button 
                             onClick={() => setIsUpdating(true)} 

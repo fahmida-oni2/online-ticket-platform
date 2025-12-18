@@ -1,7 +1,6 @@
 import React from "react";
 import { FaTicketAlt, FaUserAlt } from "react-icons/fa";
 import { Link, NavLink, Outlet } from "react-router";
-import Navbar from "../../Components/Navbar/Navbar";
 import { TbTransactionDollar } from "react-icons/tb";
 import { LuTicketCheck, LuTicketPlus } from "react-icons/lu";
 import { MdRateReview } from "react-icons/md";
@@ -9,8 +8,10 @@ import { SiGoogletagmanager } from "react-icons/si";
 import { GrUserManager } from "react-icons/gr";
 import { RiAdvertisementFill } from "react-icons/ri";
 import Footer from "../../Components/Footer/Footer";
+import useRole from "../../Hooks/useRole";
 
 const DashboardLayout = () => {
+  const { role } = useRole();
   return (
     <>
       <div className="drawer lg:drawer-open min-h-screen">
@@ -41,6 +42,12 @@ const DashboardLayout = () => {
             </label>
           </nav>
           {/* Page content here */}
+
+          <div className="flex justify-center mt-10 border-b-2  border-gray-400 animate__animated animate__fadeInDown">
+            <p className="ml-5  mr-5 mb-5 text-5xl text-sky-800">
+              welcome to Dashboard
+            </p>
+          </div>
 
           <div className="ml-5 mr-5">
             <Outlet></Outlet>
@@ -105,62 +112,74 @@ const DashboardLayout = () => {
               </li>
 
               {/* vendor */}
-              <li>
-                <NavLink to="/dashboard/add-tickets" className="">
-                  <LuTicketPlus />
-                  <span className="is-drawer-close:hidden"> Add Tickets</span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/myAdded-tickets" className="">
-                  <LuTicketPlus />
-                  <span className="is-drawer-close:hidden">
-                    My Added Tickets
-                  </span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/requested-bookings" className="">
-                  <LuTicketCheck />
-                  <span className="is-drawer-close:hidden">
-                    {" "}
-                    Requested Bookings{" "}
-                  </span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/revenue" className="">
-                  <MdRateReview />
-                  <span className="is-drawer-close:hidden">
-                    Revenue Overview
-                  </span>
-                </NavLink>
-              </li>
+              {role === "vendor" && (
+                <>
+                  <li>
+                    <NavLink to="/dashboard/add-tickets" className="">
+                      <LuTicketPlus />
+                      <span className="is-drawer-close:hidden">
+                        {" "}
+                        Add Tickets
+                      </span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/dashboard/myAdded-tickets" className="">
+                      <LuTicketPlus />
+                      <span className="is-drawer-close:hidden">
+                        My Added Tickets
+                      </span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/dashboard/requested-bookings" className="">
+                      <LuTicketCheck />
+                      <span className="is-drawer-close:hidden">
+                        Requested Bookings
+                      </span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/dashboard/revenue" className="">
+                      <MdRateReview />
+                      <span className="is-drawer-close:hidden">
+                        Revenue Overview
+                      </span>
+                    </NavLink>
+                  </li>
+                </>
+              )}
               {/* Admin */}
-              <li>
-                <NavLink to="/dashboard/manage-tickets" className="">
-                  <SiGoogletagmanager />
-                  <span className="is-drawer-close:hidden">
-                    {" "}
-                    Manage Tickets{" "}
-                  </span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/manage-users" className="">
-                  <GrUserManager />
-                  <span className="is-drawer-close:hidden"> Manage Users </span>
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/advertise-tickets" className="">
-                  <RiAdvertisementFill />
-                  <span className="is-drawer-close:hidden">
-                    {" "}
-                    Advertise Tickets{" "}
-                  </span>
-                </NavLink>
-              </li>
+              {role === "admin" && (
+                <>
+                  <li>
+                    <NavLink to="/dashboard/manage-tickets" className="">
+                      <SiGoogletagmanager />
+                      <span className="is-drawer-close:hidden">
+                       
+                        Manage Tickets
+                      </span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/dashboard/manage-users" className="">
+                      <GrUserManager />
+                      <span className="is-drawer-close:hidden">
+                       
+                        Manage Users
+                      </span>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/dashboard/advertise-tickets" className="">
+                      <RiAdvertisementFill />
+                      <span className="is-drawer-close:hidden">
+                        Advertise Tickets
+                      </span>
+                    </NavLink>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

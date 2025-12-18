@@ -25,6 +25,7 @@ import TicketDetails from "../Pages/TicketDetails/TicketDetails";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 import PaymentSuccess from "../Pages/Dashboard/Payment/PaymentSuccess";
 import PaymentCancelled from "../Pages/Dashboard/Payment/PaymentCancelled";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -136,15 +137,15 @@ export const router = createBrowserRouter([
       },
       {
         path: "manage-tickets",
-        element: <ManageTickets></ManageTickets>,
+        element: <AdminRoute><ManageTickets></ManageTickets>,</AdminRoute>
       },
       {
         path: "manage-users",
-        element: <ManageUsers></ManageUsers>,
+        element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>,
       },
       {
         path: "advertise-tickets",
-        element: <AdvertiseTickets></AdvertiseTickets>,
+        element:<AdminRoute> <AdvertiseTickets></AdvertiseTickets></AdminRoute>,
       },
        
     ],
