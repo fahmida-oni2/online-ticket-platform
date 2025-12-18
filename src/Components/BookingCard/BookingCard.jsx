@@ -120,7 +120,7 @@ const BookingCard = ({ ticket, onDelete }) => {
 
      
       <div className="px-6 pb-6 pt-4 border-t">
-        {/* Buttons */}
+        {/* Pay Buttons */}
         <div className="flex justify-between items-center">
           {bookingStatus?.toLowerCase() === "accepted" && (
             <Link

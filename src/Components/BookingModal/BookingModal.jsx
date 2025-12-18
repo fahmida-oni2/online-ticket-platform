@@ -4,12 +4,14 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../../Provider/AuthProvider';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import { useNavigate } from 'react-router';
 
 const BookingModal = ({ ticket, onClose }) => {
     const { user } = use(AuthContext);
     const [quantity, setQuantity] = useState(1);
     const axiosSecure = useAxiosSecure();
     const queryClient = useQueryClient();
+    const navigate = useNavigate();
 
     const isQuantityInvalid = quantity > ticket.quantity || quantity <= 0;
 
@@ -21,6 +23,7 @@ const BookingModal = ({ ticket, onClose }) => {
             queryClient.invalidateQueries({ queryKey: ['myBookedTickets'] }); 
             toast.success('Ticket booked successfully! Status: Pending');
             onClose();
+            navigate('/dashboard/my-tickets');
         },
         onError: (error) => {
             console.error(error);

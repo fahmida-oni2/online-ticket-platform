@@ -43,14 +43,23 @@ const Payment = () => {
    if (isPending) {
     return <Loading></Loading>;
   }
-    return (
-        <div className='grid justify-center items-center mt-5'>
-          Please pay {finalPrice} TK for : {ticket.ticketTitle} <br />
-          <button onClick={handlePayment} className='btn mt-5 bg-sky-800 text-white rounded-2xl'>Pay</button>
-             <Toaster></Toaster>
-        </div>
-       
-    );
+   return (
+  <div className='flex flex-col justify-center items-center min-h-screen'>
+    <div className='text-center space-y-5'>
+      <p className="text-lg font-semibold">
+        Please pay {finalPrice} TK for: {ticket.ticketTitle}
+      </p>
+      
+      <button 
+        onClick={handlePayment} 
+        className='btn bg-sky-800 text-white rounded-2xl px-8'
+      >
+        Pay
+      </button>
+    </div>
+    <Toaster />
+  </div>
+);
 };
 
 export default Payment;
