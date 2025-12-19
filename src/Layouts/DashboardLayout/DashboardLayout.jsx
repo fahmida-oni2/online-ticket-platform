@@ -7,7 +7,6 @@ import { MdRateReview } from "react-icons/md";
 import { SiGoogletagmanager } from "react-icons/si";
 import { GrUserManager } from "react-icons/gr";
 import { RiAdvertisementFill } from "react-icons/ri";
-import Footer from "../../Components/Footer/Footer";
 import useRole from "../../Hooks/useRole";
 
 const DashboardLayout = () => {
@@ -184,7 +183,7 @@ const DashboardLayout = () => {
           </div>
         </div>
       </div>
-      <Footer></Footer>
+     
     </>
   );
 };

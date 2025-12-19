@@ -6,7 +6,7 @@ const About = () => {
       <h2 className="text-4xl mt-10 text-center text-sky-800  font-bold mb-4 animate__animated animate__fadeInDown">
         About Us
       </h2>
-      <p className=" mb-12 italic text-center animate__animated animate__fadeInUp max-w-3xl mx-auto">
+      <p className=" mb-12 italic text-center text-black animate__animated animate__fadeInUp max-w-3xl mx-auto">
         RailTransitHub: Train Travel All In One Place <br />
 RailTransitHub is the premier platform designed to offer a modern, efficient, and comprehensive rail travel experience, centralizing all your train ticketing and journey management needs.
       </p>

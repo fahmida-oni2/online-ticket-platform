@@ -63,7 +63,7 @@ const AdvertiseTickets = () => {
                 <div className="flex justify-between items-center mb-8">
                     <h1 className="text-3xl font-bold text-gray-800">Manage Advertisements</h1>
                     <div className="bg-purple-100 text-purple-700 px-4 py-2 rounded-lg font-bold">
-                        Slot Usage: {tickets.filter(t => t.isAdvertised).length} / 6
+                        Slot Usage: {tickets.filter(t => t.isAdvertised).length} 
                     </div>
                 </div>
                 

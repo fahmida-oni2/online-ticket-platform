@@ -5,7 +5,6 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "animate.css";
-import { IoLogIn } from "react-icons/io5";
 import { Link } from "react-router";
 const Banner = () => {
   return (
@@ -90,6 +89,7 @@ const Banner = () => {
       
       </Swiper>
     </div>
+
   );
 };
 

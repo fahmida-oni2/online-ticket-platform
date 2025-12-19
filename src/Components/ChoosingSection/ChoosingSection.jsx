@@ -5,7 +5,7 @@ const choosingSection = () => {
   return (
     <>
      
-      <h2 className="text-4xl text-center text-black font-bold mb-4 animate__animated animate__fadeInDown">
+      <h2 className="text-4xl text-center text-black  font-bold mb-4 mt-5 animate__animated animate__fadeInDown">
         Why Choose Us
       </h2>
       <p className="text-center mb-5 animate__animated animate__fadeInUp ">
@@ -15,7 +15,7 @@ const choosingSection = () => {
         for RailTransit Hub to book train tickets online.
       </p>
       <Marquee pauseOnClick pauseOnHover speed={30}>
-        <div className="card  w-96 h-80 shadow-sm mb-10 mr-5">
+        <div className="card  w-96 h-80 shadow-sm mb-10 mr-5 bg-sky-200">
           <figure className="px-10 pt-10 ">
             <img
               src="https://i.ibb.co.com/WvkHBwkN/image.png"
@@ -24,15 +24,15 @@ const choosingSection = () => {
             />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title">Connecting trains</h2>
+            <h2 className="card-title">Connecting trains,buses,flights</h2>
             <p>
-              Find connecting trains with available seats,when direct trains are
+              Find connecting travels with available seats,when direct tickets are
               waitlisted.
             </p>
           </div>
         </div>
 
-        <div className="card  w-96 h-80 shadow-sm mb-10 mr-5">
+        <div className="card  w-96 h-80 shadow-sm mb-10 mr-5 bg-sky-200">
           <figure className="px-10 pt-10">
             <img
               src="https://i.ibb.co.com/4ZgZdXcc/image.png"
@@ -49,7 +49,7 @@ const choosingSection = () => {
           </div>
         </div>
 
-        <div className="card  w-96 h-80 shadow-sm mb-10 mr-5">
+        <div className="card  w-96 h-80 shadow-sm mb-10 mr-5 bg-sky-200">
           <figure className="px-10 pt-10">
             <img
               src="https://i.ibb.co.com/gFjNP1j3/image.png"
@@ -59,11 +59,11 @@ const choosingSection = () => {
           </figure>
           <div className="card-body items-center text-center">
             <h2 className="card-title">Exclusive Deals and Discounts</h2>
-            <p>Get exclusive discount while booking train tickets.</p>
+            <p>Get exclusive discount while booking tickets.</p>
           </div>
         </div>
 
-        <div className="card  w-96 h-80 shadow-sm mb-10 mr-5">
+        <div className="card  w-96 h-80 shadow-sm mb-10 mr-5 bg-sky-200">
           <figure className="px-10 pt-10">
             <img
               src="https://i.ibb.co.com/JjH7Kw4G/image.png"

@@ -25,7 +25,7 @@ const Contact = () => (
                 
                 <div className="w-full lg:w-5/12 mb-8 lg:mb-0">
                     <h2 className="text-xl font-bold mb-4">BANGLADESH</h2>
-                    <p className="font-medium">RailTransit Hub Limited</p>
+                    <p className="font-medium">Ticket Hub Limited</p>
                     <p className="mt-2 text-gray-300 leading-relaxed whitespace-pre-line">
                         Green View,
                         5th Floor, #No 23, Old Airport Road,
@@ -43,7 +43,7 @@ const Contact = () => (
         </p>
         <p className="mt-1">Support Time: 24*7</p>
         <div className="my-4 border-t border-gray-600 w-full"></div>
-        <p className="mt-4">For Any enquiries: railtransit@gmail.com</p>
+        <p className="mt-4">For Any enquiries: tickethub@gmail.com</p>
        
     </div>
                 </div>
@@ -57,22 +57,22 @@ const Contact = () => (
             <div className="flex flex-wrap -mx-4">
                 <OfficeLocation
                     city="Chittagong"
-                    name="RailTransit Hub Limited"
+                    name="Ticket Hub Limited"
                     address={`JK Centre, 2nd Floor, 5th, Kannapiran Mills Rd, Near KIA Service Centre, Chittagong.`}
                 />
                 <OfficeLocation
                     city="Abdullahpur"
-                    name="RailTransit Hub Limited"
+                    name="Ticket  Hub Limited"
                     address={`Opp Doordarshan TV Tower Drive - In Road Thaltej, Abdullahpur`}
                 />
                 <OfficeLocation
                     city="Sylhet"
-                    name="RailTransit Hub Limited"
+                    name="Ticket  Hub Limited"
                     address={`# 207, 2nd floor, Fortune Ambience, Near Hotel Surya,MouloviBazar,Sylhet`}
                 />
                 <OfficeLocation
                     city="Rajshahi"
-                    name="RailTransit Hub Limited"
+                    name="Ticket  Hub Limited"
                     address={`iSprout Business Center Pvt Ltd 201, 2nd Floor, Modern Profound Tech Park Whitefield's Road, Rajshahi`}
                 />
                
