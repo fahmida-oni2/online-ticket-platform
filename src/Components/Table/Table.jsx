@@ -1,99 +1,60 @@
 import React from "react";
 import { GrFormView } from "react-icons/gr";
-import { MdDelete } from "react-icons/md";
-import { RxUpdate } from "react-icons/rx";
-import { Link } from "react-router";
+import {  MdCampaign, MdOutlineCampaign } from "react-icons/md";
+import { Link } from "react-router"; 
 
-
-const Table = ({ ticket,onDelete }) => {
-   const {
+const Table = ({ ticket, index, onAdvertise }) => {
+  const {
     ticketTitle,
     fromLocation,
     toLocation,
     transportType,
     price,
     quantity,
-    departureDate,
-    departureTime,
-    perks,
+    isAdvertised,
     _id,
-    verificationStatus,
   } = ticket;
-    const status =
-    verificationStatus === "Accepted"
-      ? "bg-green-100 text-green-800"
-      : verificationStatus === "Pending"
-      ? "bg-yellow-100 text-yellow-800"
-      : "bg-red-100 text-red-800";
+
   return (
-    <div>
-       <tr className="border-b hover:bg-gray-50 transition duration-150 ">
-      <td className="px-6 py-4  text-black font-bold whitespace-nowrap">
-       {ticketTitle}
+    <tr className="border-b hover:bg-gray-50 transition duration-150">
+      <td className="px-4 py-4 font-medium text-gray-900">{index + 1}</td>
+      <td className="px-6 py-4 text-black font-bold whitespace-nowrap">
+        {ticketTitle}
       </td>
-
-      {/* type */}
-      <td className="px-6 py-4 text-black whitespace-nowrap">{transportType}</td>
-      {/* location */}
-        <td className="px-6 py-4 text-black whitespace-nowrap">From {fromLocation} to {toLocation}</td>
-      {/* Price */}
-      <td className="px-6 py-4 text-gray-500 whitespace-nowrap">
-        {price} TK
+      <td className="px-6 py-4 text-gray-600">{transportType}</td>
+      <td className="px-6 py-4 text-gray-600 whitespace-nowrap">
+        {fromLocation} to {toLocation}
       </td>
+      <td className="px-6 py-4 font-semibold text-gray-800">{price} TK</td>
+      <td className="px-6 py-4 text-gray-500">{quantity} seats</td>
 
-      {/* quantity */}
-       <td className="px-6 py-4 text-gray-500 whitespace-nowrap">
-        {quantity} seats
-      </td>
-
-      {/* Status */}
-      <td className="px-6 py-4 whitespace-nowrap">
-        <span
-          className={`inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium ${status}`}
-        >
-          {verificationStatus}
-        </span>
-      </td>
-
-      {/* Date & time*/}
-      <td className="px-6 py-4 text-gray-500 whitespace-nowrap">
-        {departureDate} and {departureTime}
-      </td>
-
-      {/* Actions (Delete Button) */}
-      <td className="px-6 py-4 text-right whitespace-nowrap">
-        <Link
-          href={`/all-kits/${_id}`}
-          className="inline-flex items-center r  px-3 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white  bg-secondary hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 mr-3"
-        >
-          <GrFormView />
-        </Link>
-         <Link
-          href={`/update-kit/${_id}`}
-          className="inline-flex items-center  px-2  py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 mr-3"
-        >
-          <RxUpdate />
-        </Link>
-
+      {/* Advertise Toggle Button */}
+      <td className="px-6 py-4">
         <button
-          onClick={() => onDelete(_id)}
-          className="inline-flex items-center  py-2 px-3 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition duration-150"
+          onClick={() => onAdvertise(_id, isAdvertised)}
+          className={`flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold transition-all ${
+            isAdvertised
+              ? "bg-purple-600 text-white shadow-md hover:bg-purple-700"
+              : "bg-gray-100 text-gray-500 hover:bg-gray-200"
+          }`}
         >
-         <MdDelete />
+          {isAdvertised ? <MdCampaign size={16} /> : <MdOutlineCampaign size={16} />}
+          {isAdvertised ? "ADVERTISED" : "ADVERTISE"}
         </button>
       </td>
-    
+
+      {/* Actions */}
+      <td className="px-6 py-4 text-right space-x-2">
+        <Link
+          to={`/all-tickets/${_id}`}
+          className="inline-flex items-center p-2 bg-sky-100 text-sky-600 rounded-lg hover:bg-sky-600 hover:text-white transition"
+        >
+          <GrFormView size={20} />
+        </Link>
+   
+      </td>
     </tr>
-    </div>
   );
 };
 
 export default Table;
-
-  // const formattedDate = new Date(
-  //   kit.created_date || new Date()
-  // ).toLocaleDateString();
-
-  // const formattedPrice = (kit.price || 0).toFixed(2);
-
- 

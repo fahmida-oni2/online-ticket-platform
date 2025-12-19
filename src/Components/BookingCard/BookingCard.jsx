@@ -3,7 +3,6 @@ import { Toaster } from "react-hot-toast";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router";
 import useCountdown from "../../Hooks/useCountdown";
-import Payment from "../../Pages/Dashboard/Payment/Payment";
 
 const BookingCard = ({ ticket, onDelete }) => {
   const {
@@ -67,7 +66,7 @@ const BookingCard = ({ ticket, onDelete }) => {
               />
             </figure>
           </div>
-          <h1 className="text-2xl font-bold text-gray-800 text-center">
+          <h1 className="text-2xl font-bold  text-center">
             {ticketTitle}
           </h1>
 

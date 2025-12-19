@@ -46,20 +46,20 @@ const TicketDetails = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 mb-10 bg-white shadow-lg rounded-lg mt-10">
+    <div className="max-w-4xl mx-auto p-6 mb-10  shadow-lg rounded-lg mt-10">
       <div className="flex justify-center">
         <figure>
           <img src={ticket.imageUrl} alt="" />
         </figure>
       </div>
-      <h1 className="text-3xl font-bold text-gray-800 mb-4 text-center">
+      <h1 className="text-3xl font-bold text-gray-800 mb-4 mt-5 text-center">
         {ticket.ticketTitle}
       </h1>
-      <p className="text-center">
+      <p className="text-center text-gray-800 ">
         <strong>Transport Type:</strong> {ticket.transportType}
       </p>
 
-      <div className="flex justify-between">
+      <div className="flex justify-between text-gray-800 ">
         <div>
           <div className="flex gap-10">
             <p>
@@ -93,7 +93,7 @@ const TicketDetails = () => {
         </div>
       </div>
 
-      <div className="flex justify-between mt-6 border-t pt-4">
+      <div className="flex justify-between text-gray-800  mt-6 border-t pt-4">
         {ticket.perks && ticket.perks.length > 0 && (
           <div>
             <h2 className="text-xl font-semibold mb-2">Included Perks:</h2>

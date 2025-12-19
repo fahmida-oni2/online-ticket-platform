@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'; // Changed 'use' to 'useContext'
+import React, { use} from 'react'; // Changed 'use' to 'useContext'
 import { AuthContext } from '../../Provider/AuthProvider';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
@@ -6,7 +6,7 @@ import Card from '../../Components/Card/Card';
 import Loading from '../../components/Loading/Loading';
 
 const Tickets = () => {
-    const { user } = useContext(AuthContext); 
+    const { user } = use(AuthContext); 
     const axiosSecure = useAxiosSecure();
 
     const { isPending, data: ticketsResponse } = useQuery({
@@ -24,7 +24,7 @@ const Tickets = () => {
 
     return (
         <div className="container mx-auto px-4">
-            <h1 className="text-center font-bold text-3xl mt-5 mb-8">All Approved Tickets</h1>
+            <h1 className="text-center font-bold text-3xl mt-5 mb-8 text-gray-800 ">All Approved Tickets</h1>
             
             {tickets.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

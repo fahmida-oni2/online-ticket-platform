@@ -32,7 +32,7 @@ const Payment = () => {
   const paymentInfo = {
     cost: finalPrice,
     ticketId:ticket._id,
-    bookedBy:ticket.bookedBy,
+    customerEmail:ticket.customerEmail,
     ticketTitle:ticket.ticketTitle
   }
   const res = await axiosSecure.post('/create-checkout-session',paymentInfo)

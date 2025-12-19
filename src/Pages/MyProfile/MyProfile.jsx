@@ -81,11 +81,11 @@ const MyProfile = () => {
 
                     {isUpdating && (
                         <div className="mt-8 p-6 bg-white shadow-lg rounded-lg w-full max-w-sm">
-                            <h2 className='text-2xl font-bold mb-4'>Update Profile</h2>
+                            <h2 className='text-2xl font-bold mb-4 text-gray-700'>Update Profile</h2>
                             <form onSubmit={handleUpdateSubmit} className='space-y-4'>
                                 <div>
                                     <label className="label">
-                                        <span className="label-text">Name</span>
+                                        <span className="label-text text-gray-700">Name</span>
                                     </label>
                                     <input
                                         type="text"
@@ -97,7 +97,7 @@ const MyProfile = () => {
                                 </div>
                                 <div>
                                     <label className="label">
-                                        <span className="label-text">Photo URL</span>
+                                        <span className="label-text text-gray-700">Photo URL</span>
                                     </label>
                                     <input
                                         type="text"
@@ -114,7 +114,7 @@ const MyProfile = () => {
                                     <button 
                                         type="button" 
                                         onClick={() => setIsUpdating(false)} 
-                                        className="btn btn-ghost"
+                                        className="btn btn-ghost text-gray-700"
                                     >
                                         Cancel
                                     </button>

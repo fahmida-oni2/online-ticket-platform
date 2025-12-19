@@ -87,14 +87,14 @@ const AddTickets = () => {
               name="ticketTitle"
               {...register("ticketTitle")}
               required
-              className="mt-1 block w-full px-3 py-2 border  border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-3 py-2 border  border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm "
             />
           </div>
 
           {/* From location */}
           <div>
             <fieldset className="fieldset">
-              <legend className="fieldset-legend">From</legend>
+              <legend className="fieldset-legend text-black">From</legend>
               <select
                 {...register("fromLocation", { required: true })}
                 defaultValue="Pick a location"
@@ -112,7 +112,7 @@ const AddTickets = () => {
 
           {/* To location */}
           <fieldset className="fieldset">
-            <legend className="fieldset-legend">To</legend>
+            <legend className="fieldset-legend text-black">To</legend>
             <select
               {...register("toLocation", { required: true })}
               defaultValue="Pick a location"
@@ -193,7 +193,7 @@ const AddTickets = () => {
                 type="date"
                 name="date"
                 {...register("date", { required: true })}
-                className="input input-bordered w-full mt-1 px-3 py-2 text-black border border-gray-300 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+                className="input input-bordered w-full mt-1 px-3 py-2  border border-gray-300 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
               />
             </div>
           </div>
@@ -204,7 +204,7 @@ const AddTickets = () => {
             <input
               type="time"
               {...register("departureTime", { required: true })}
-              className="input input-bordered w-full mt-1 px-3 py-2 text-black border border-gray-300 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
+              className="input input-bordered w-full mt-1 px-3 py-2  border border-gray-300 rounded-md shadow-sm focus:ring-sky-500 focus:border-sky-500 sm:text-sm"
             />
           </div>
           {/* perks */}
@@ -214,12 +214,12 @@ const AddTickets = () => {
               {perkOptions.map((perk) => (
                 <div key={perk.value} className="form-control">
                   <label className="label cursor-pointer p-0">
-                    <span className="label-text">{perk.label}</span>
+                    <span className="label-text text-black">{perk.label}</span>
                     <input
                       type="checkbox"
                       value={perk.value}
                       {...register("perks")}
-                      className="checkbox checkbox-sm checkbox-secondary"
+                      className="checkbox checkbox-sm checkbox-secondary text-black"
                     />
                   </label>
                 </div>

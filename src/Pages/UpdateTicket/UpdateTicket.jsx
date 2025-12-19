@@ -91,10 +91,10 @@ const UpdateTicket = ({ ticket, onClose,refetch  }) => {
   };
   return (
     <ModalOverlay onClose={onClose}>
-      <h3 className="text-2xl font-bold mb-4">
+      <h3 className="text-2xl font-bold mb-4 text-black">
         Edit Ticket: {ticket.ticketTitle}
       </h3>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 text-black">
         {/* 1. Ticket Title */}
         <div className="flex flex-col">
           <label htmlFor="ticketTitle" className="text-sm font-medium">
@@ -145,8 +145,8 @@ const UpdateTicket = ({ ticket, onClose,refetch  }) => {
 
         {/* From location */}
         <div>
-          <fieldset className="fieldset">
-            <legend className="fieldset-legend">From</legend>
+          <fieldset className="fieldset ">
+            <legend className="fieldset-legend text-black">From</legend>
             <select
               name="fromLocation"
               value={formData.fromLocation}
@@ -167,7 +167,7 @@ const UpdateTicket = ({ ticket, onClose,refetch  }) => {
 
         {/* To location */}
         <fieldset className="fieldset">
-          <legend className="fieldset-legend">To</legend>
+          <legend className="fieldset-legend text-black">To</legend>
           <select
             name="toLocation"
             value={formData.toLocation}

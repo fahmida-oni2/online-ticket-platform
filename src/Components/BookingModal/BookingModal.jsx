@@ -45,7 +45,8 @@ const BookingModal = ({ ticket, onClose }) => {
             image:ticket.imageUrl,
             ticketTitle: ticket.ticketTitle,
             vendorEmail: ticket.vendorEmail,
-            bookedBy: user.email,
+            bookedBy: user.displayName,
+            customerEmail:user.email,
             fromLocation:ticket.fromLocation,
             toLocation:ticket.toLocation,
             transportType:ticket.transportType,
@@ -55,6 +56,7 @@ const BookingModal = ({ ticket, onClose }) => {
             departureDate:ticket.departureDate,
             departureTime:ticket.departureTime,
             bookingDate: new Date().toISOString(),
+            status:'pending'
         };
 
         bookTicketMutation.mutate(bookingData);
@@ -66,14 +68,14 @@ const BookingModal = ({ ticket, onClose }) => {
             onClick={onClose}
         >
             <div
-                className="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full"
+                className="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full "
                 onClick={(e) => e.stopPropagation()}
             >
-                <h3 className="text-xl font-bold mb-4">Book: {ticket.ticketTitle}</h3>
-                <p className="text-sm mb-4">Available Seats: {ticket.quantity}</p>
+                <h3 className="text-xl font-bold mb-4 text-black">Book: {ticket.ticketTitle}</h3>
+                <p className="text-sm mb-4 text-black">Available Seats: {ticket.quantity}</p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="flex flex-col">
+                    <div className="flex flex-col text-black">
                         <label htmlFor="quantity" className="text-sm font-medium">
                             Quantity to Book
                         </label>
@@ -85,7 +87,7 @@ const BookingModal = ({ ticket, onClose }) => {
                             min="1"
                             max={ticket.quantity}
                             required
-                            className="border p-2 rounded"
+                            className="border p-2 rounded "
                             disabled={bookTicketMutation.isPending}
                         />
                         {quantity > ticket.quantity && (

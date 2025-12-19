@@ -2,6 +2,8 @@ import React from 'react';
 import Banner from '../../Components/Banner/Banner';
 import ChoosingSection from '../../Components/ChoosingSection/choosingSection';
 import Guideline from '../../Components/Guideline/Guideline';
+import AdvertiseTickets from '../Dashboard/AdvertiseTickets/AdvertiseTickets';
+import Advertisements from '../../Components/Advertisements/Advertisements';
 
 const Home = () => {
     return (
@@ -10,7 +12,7 @@ const Home = () => {
                 <Banner></Banner>
             </section>
             <section>
-                Advertisement section
+               <Advertisements></Advertisements>
             </section>
             <section>
                 Latest Ticket
