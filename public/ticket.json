@@ -1,544 +1,332 @@
 [
+
   {
-    "image_url": "https://example.com/images/biman_air.jpg",
-    "ticket_title": "Economy Class | Biman Bangladesh Airlines",
-    "from_location": {
-      "city": "Dhaka",
-      "code": "DAC"
-    },
-    "to_location": {
-      "city": "Cox's Bazar",
-      "code": "CXB"
-    },
-    "transport_type": "Flight (Domestic)",
-    "price_per_unit": 6500.00,
-    "currency": "BDT",
-    "available_quantity": 15,
-    "perks": [
-      "1 Checked Bag (20kg)",
-      "Meal Included",
-      "Window/Aisle Seat Selection"
-    ],
-    "departure": {
-      "date": "2025-12-25",
-      "time": "01:00 PM"
-    }
+    "vendorName": "Green Line",
+    "vendorEmail": "info@greenline.com",
+    "ticketTitle": "Executive Scania",
+    "fromLocation": "Dhaka",
+    "toLocation": "Chittagong",
+    "transportType": "Bus",
+    "price": 1200,
+    "quantity": 30,
+    "departureDate": "2025-12-28",
+    "departureTime": "08:00",
+    "perks": ["Reclining Seats", "Water", "WiFi"],
+    "imageUrl": "https://i.ibb.co.com/sXQq956/image.png",
+    "status": "approved",
+    "createdAt": { "$date": "2025-12-18T19:00:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/train_ac_chair.jpg",
-    "ticket_title": "AC Chair | Silk City Express",
-    "from_location": {
-      "city": "Dhaka",
-      "code": "DHAKA-KMP"
-    },
-    "to_location": {
-      "city": "Rajshahi",
-      "code": "RAJSH-S"
-    },
-    "transport_type": "Train (Intercity)",
-    "price_per_unit": 800.00,
-    "currency": "BDT",
-    "available_quantity": 30,
-    "perks": [
-      "Air-Conditioned Compartment",
-      "Water Bottle",
-      "Comfortable Reclining Seat"
-    ],
-    "departure": {
-      "date": "2025-12-25",
-      "time": "07:40 AM"
-    }
+    "vendorName": "Biman Airlines",
+    "vendorEmail": "booking@biman.com",
+    "ticketTitle": "BG-047 Domestic",
+    "fromLocation": "Dhaka",
+    "toLocation": "Cox's Bazar",
+    "transportType": "Flight",
+    "price": 4500,
+    "quantity": 12,
+    "departureDate": "2025-12-29",
+    "departureTime": "10:30",
+    "perks": ["Snacks", "20kg Baggage", "Extra Legroom"],
+    "imageUrl": "https://i.ibb.co.com/W4ct0Kb1/image.png",
+    "status": "pending",
+    "createdAt": { "$date": "2025-12-18T19:15:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/bus_ac.jpg",
-    "ticket_title": "Luxury AC Sleeper | Dhaka to Sylhet",
-    "from_location": {
-      "city": "Dhaka",
-      "code": "GABTOLI"
-    },
-    "to_location": {
-      "city": "Sylhet",
-      "code": "SYLHET-P"
-    },
-    "transport_type": "Bus (Coach)",
-    "price_per_unit": 1800.00,
-    "currency": "BDT",
-    "available_quantity": 8,
-    "perks": [
-      "Full Sleeper Berth",
-      "Air Conditioning",
-      "Blanket & Water Provided",
-      "Emergency Exit"
-    ],
-    "departure": {
-      "date": "2025-12-23",
-      "time": "11:00 PM"
-    }
+    "vendorName": "Subarna Express",
+    "vendorEmail": "railway@gov.bd",
+    "ticketTitle": "Subarna 701",
+    "fromLocation": "Chittagong",
+    "toLocation": "Dhaka",
+    "transportType": "Train",
+    "price": 800,
+    "quantity": 120,
+    "departureDate": "2025-12-30",
+    "departureTime": "07:00",
+    "perks": ["Snack Box", "AC", "Pantry Car"],
+    "imageUrl": "https://i.ibb.co.com/1cXSnr9/image.png",
+    "status": "approved",
+    "createdAt": { "$date": "2025-12-18T19:20:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/us_bangla_air.jpg",
-    "ticket_title": "Business Class | US-Bangla Airlines",
-    "from_location": {
-      "city": "Dhaka",
-      "code": "DAC"
-    },
-    "to_location": {
-      "city": "Jessore",
-      "code": "JSR"
-    },
-    "transport_type": "Flight (Domestic)",
-    "price_per_unit": 7800.00,
-    "currency": "BDT",
-    "available_quantity": 4,
-    "perks": [
-      "Priority Boarding",
-      "Extra Legroom",
-      "Hot Meal Service",
-      "2 Checked Bags"
-    ],
-    "departure": {
-      "date": "2025-12-26",
-      "time": "08:15 AM"
-    }
+    "vendorName": "Hanif Enterprise",
+    "vendorEmail": "support@hanif.com",
+    "ticketTitle": "Business Class",
+    "fromLocation": "Dhaka",
+    "toLocation": "Sylhet",
+    "transportType": "Bus",
+    "price": 1000,
+    "quantity": 25,
+    "departureDate": "2025-12-27",
+    "departureTime": "23:00",
+    "perks": ["Movie System", "Blanket", "ChargingPorts"],
+    "imageUrl": "https://i.ibb.co.com/8D976bst/image.png",
+    "status": "pending",
+    "createdAt": { "$date": "2025-12-18T20:00:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/train_first_class.jpg",
-    "ticket_title": "First Berths (Cabin) | Sundarban Express",
-    "from_location": {
-      "city": "Dhaka",
-      "code": "DHAKA-KMP"
-    },
-    "to_location": {
-      "city": "Khulna",
-      "code": "KLN"
-    },
-    "transport_type": "Train (Overnight)",
-    "price_per_unit": 1900.00,
-    "currency": "BDT",
-    "available_quantity": 4,
-    "perks": [
-      "Private 4-Berth Cabin",
-      "Clean Bedding and Pillow",
-      "Dinner Included"
-    ],
-    "departure": {
-      "date": "2025-12-23",
-      "time": "10:30 PM"
-    }
+    "vendorName": "US-Bangla",
+    "vendorEmail": "info@usb.com",
+    "ticketTitle": "USB-102 Sky",
+    "fromLocation": "Dhaka",
+    "toLocation": "Jessore",
+    "transportType": "Flight",
+    "price": 3800,
+    "quantity": 5,
+    "departureDate": "2025-12-28",
+    "departureTime": "14:15",
+    "perks": ["Quick Check-in", "Window Seat Choice"],
+    "imageUrl": "https://i.ibb.co.com/jZGMX17S/image.png",
+    "status": "approved",
+    "createdAt": { "$date": "2025-12-18T20:30:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/bus_non_ac.jpg",
-    "ticket_title": "Standard Non-AC | Dhaka to Barisal",
-    "from_location": {
-      "city": "Dhaka",
-      "code": "SAYEDABAD"
-    },
-    "to_location": {
-      "city": "Barisal",
-      "code": "BAR"
-    },
-    "transport_type": "Bus (Coach)",
-    "price_per_unit": 600.00,
-    "currency": "BDT",
-    "available_quantity": 45,
-    "perks": [
-      "Spacious Luggage Hold",
-      "Frequent Comfort Stops"
-    ],
-    "departure": {
-      "date": "2025-12-24",
-      "time": "07:00 PM"
-    }
+    "vendorName": "Parabat Express",
+    "vendorEmail": "rail@gov.bd",
+    "ticketTitle": "Parabat 709",
+    "fromLocation": "Dhaka",
+    "toLocation": "Sylhet",
+    "transportType": "Train",
+    "price": 650,
+    "quantity": 50,
+    "departureDate": "2025-12-27",
+    "departureTime": "06:20",
+    "perks": ["AC Cabin", "Security Guard"],
+    "imageUrl": "https://i.ibb.co.com/d41cdMP3/image.png",
+    "status": "approved",
+    "createdAt": { "$date": "2025-12-18T21:00:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/novo_air.jpg",
-    "ticket_title": "Economy Class | NovoAir",
-    "from_location": {
-      "city": "Chattogram",
-      "code": "CGP"
-    },
-    "to_location": {
-      "city": "Dhaka",
-      "code": "DAC"
-    },
-    "transport_type": "Flight (Domestic)",
-    "price_per_unit": 5200.00,
-    "currency": "BDT",
-    "available_quantity": 12,
-    "perks": [
-      "Light Refreshments",
-      "In-flight Magazine"
-    ],
-    "departure": {
-      "date": "2025-12-25",
-      "time": "04:30 PM"
-    }
+    "vendorName": "Ena Transport",
+    "vendorEmail": "ena@support.com",
+    "ticketTitle": "Hyundai Universe",
+    "fromLocation": "Dhaka",
+    "toLocation": "Mymensingh",
+    "transportType": "Bus",
+    "price": 450,
+    "quantity": 40,
+    "departureDate": "2025-12-29",
+    "departureTime": "09:00",
+    "perks": ["Fast Journey", "Reading Light"],
+    "imageUrl": "https://i.ibb.co.com/qbpdhCV/image.png",
+    "status": "pending",
+    "createdAt": { "$date": "2025-12-18T21:10:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/bangladesh_rail.jpg",
-    "ticket_title": "Shovan Chair | Subarna Express",
-    "from_location": {
-      "city": "Chattogram",
-      "code": "CHT"
-    },
-    "to_location": {
-      "city": "Dhaka",
-      "code": "DHAKA-KMP"
-    },
-    "transport_type": "Train (Intercity)",
-    "price_per_unit": 450.00,
-    "currency": "BDT",
-    "available_quantity": 50,
-    "perks": [
-      "Attached Fan",
-      "Snacks Available for Purchase",
-      "Cushioned Seat"
-    ],
-    "departure": {
-      "date": "2025-12-24",
-      "time": "06:30 AM"
-    }
+    "vendorName": "Novoair",
+    "vendorEmail": "sales@novoair.com",
+    "ticketTitle": "VQ-908 Premium",
+    "fromLocation": "Dhaka",
+    "toLocation": "Rajshahi",
+    "transportType": "Flight",
+    "price": 4200,
+    "quantity": 18,
+    "departureDate": "2025-12-31",
+    "departureTime": "11:00",
+    "perks": ["In-flight Meal", "Priority Luggage"],
+    "imageUrl": "https://i.ibb.co.com/Zz5qbYKQ/image.png",
+    "status": "approved",
+    "createdAt": { "$date": "2025-12-18T21:45:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/bus_semi_ac.jpg",
-    "ticket_title": "Semi-AC Coach | Dhaka to Bogura",
-    "from_location": {
-      "city": "Dhaka",
-      "code": "GABTOLI"
-    },
-    "to_location": {
-      "city": "Bogura",
-      "code": "BOG"
-    },
-    "transport_type": "Bus (Coach)",
-    "price_per_unit": 950.00,
-    "currency": "BDT",
-    "available_quantity": 25,
-    "perks": [
-      "Partial Air Conditioning",
-      "Comfortable Seating"
-    ],
-    "departure": {
-      "date": "2025-12-26",
-      "time": "09:30 AM"
-    }
+    "vendorName": "Silk City",
+    "vendorEmail": "railway@gov.bd",
+    "ticketTitle": "Silk City 753",
+    "fromLocation": "Rajshahi",
+    "toLocation": "Dhaka",
+    "transportType": "Train",
+    "price": 550,
+    "quantity": 85,
+    "departureDate": "2025-12-30",
+    "departureTime": "07:40",
+    "perks": ["Comfortable Seats", "AC"],
+    "imageUrl": "https://i.ibb.co.com/P750HJB/image.png",
+    "status": "pending",
+    "createdAt": { "$date": "2025-12-18T22:00:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/biman_air_small.jpg",
-    "ticket_title": "Economy Class | Biman Bangladesh Airlines",
-    "from_location": {
-      "city": "Sylhet",
-      "code": "ZYL"
-    },
-    "to_location": {
-      "city": "Dhaka",
-      "code": "DAC"
-    },
-    "transport_type": "Flight (Domestic)",
-    "price_per_unit": 4800.00,
-    "currency": "BDT",
-    "available_quantity": 10,
-    "perks": [
-      "Window/Aisle Seat Selection",
-      "Standard Baggage Allowance"
-    ],
-    "departure": {
-      "date": "2025-12-27",
-      "time": "02:00 PM"
-    }
+    "vendorName": "Shohagh",
+    "vendorEmail": "shohagh@travels.com",
+    "ticketTitle": "Sleeper Coach",
+    "fromLocation": "Dhaka",
+    "toLocation": "Khulna",
+    "transportType": "Bus",
+    "price": 1800,
+    "quantity": 15,
+    "departureDate": "2025-12-28",
+    "departureTime": "22:30",
+    "perks": ["Full Flat Bed", "USB Charger", "Dinner"],
+    "imageUrl": "https://i.ibb.co.com/RTG5yGy6/image.png",
+    "status": "approved",
+    "createdAt": { "$date": "2025-12-18T22:15:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/train_shovan_chair.jpg",
-    "ticket_title": "Shovan Chair | Padma Express",
-    "from_location": {
-      "city": "Rajshahi",
-      "code": "RSH"
-    },
-    "to_location": {
-      "city": "Dhaka",
-      "code": "DHAKA-KMP"
-    },
-    "transport_type": "Train (Intercity)",
-    "price_per_unit": 380.00,
-    "currency": "BDT",
-    "available_quantity": 60,
-    "perks": [
-      "Cushioned Seat",
-      "Power Outlets in Car"
-    ],
-    "departure": {
-      "date": "2025-12-26",
-      "time": "04:00 PM"
-    }
+    "vendorName": "Biman Airlines",
+    "vendorEmail": "booking@biman.com",
+    "ticketTitle": "BG-051 International Link",
+    "fromLocation": "Chittagong",
+    "toLocation": "Dhaka",
+    "transportType": "Flight",
+    "price": 3500,
+    "quantity": 45,
+    "departureDate": "2025-12-29",
+    "departureTime": "19:00",
+    "perks": ["Refreshments", "Lounge Access"],
+    "imageUrl": "https://i.ibb.co.com/s9WSC88N/image.png",
+    "status": "approved",
+    "createdAt": { "$date": "2025-12-18T22:30:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/bus_business.jpg",
-    "ticket_title": "AC Business Class | Chattogram to Dhaka",
-    "from_location": {
-      "city": "Chattogram",
-      "code": "DAMPARA"
-    },
-    "to_location": {
-      "city": "Dhaka",
-      "code": "KALLYANPUR"
-    },
-    "transport_type": "Bus (Coach)",
-    "price_per_unit": 1500.00,
-    "currency": "BDT",
-    "available_quantity": 18,
-    "perks": [
-      "Air Conditioning",
-      "Complimentary Water and WiFi",
-      "Extra Wide Seats"
-    ],
-    "departure": {
-      "date": "2025-12-24",
-      "time": "10:30 PM"
-    }
+    "vendorName": "Upul Express",
+    "vendorEmail": "upul@transport.com",
+    "ticketTitle": "Coastal Line",
+    "fromLocation": "Dhaka",
+    "toLocation": "Noakhali",
+    "transportType": "Bus",
+    "price": 550,
+    "quantity": 32,
+    "departureDate": "2025-12-27",
+    "departureTime": "13:00",
+    "perks": ["Adjustable Seats"],
+    "imageUrl": "https://i.ibb.co.com/DH4gFX2L/image.png",
+    "status": "pending",
+    "createdAt": { "$date": "2025-12-18T22:45:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/train_ac_seat.jpg",
-    "ticket_title": "AC Seat | Kalni Express",
-    "from_location": {
-      "city": "Dhaka",
-      "code": "DHAKA-KMP"
-    },
-    "to_location": {
-      "city": "Sylhet",
-      "code": "SYL"
-    },
-    "transport_type": "Train (Intercity)",
-    "price_per_unit": 720.00,
-    "currency": "BDT",
-    "available_quantity": 40,
-    "perks": [
-      "Air-Conditioned Compartment",
-      "Reserved Seating"
-    ],
-    "departure": {
-      "date": "2025-12-26",
-      "time": "03:00 PM"
-    }
+    "vendorName": "Mahanagar Provati",
+    "vendorEmail": "railway@gov.bd",
+    "ticketTitle": "Mahanagar 704",
+    "fromLocation": "Dhaka",
+    "toLocation": "Chittagong",
+    "transportType": "Train",
+    "price": 600,
+    "quantity": 200,
+    "departureDate": "2025-12-29",
+    "departureTime": "07:45",
+    "perks": ["Standard AC", "Luggage Space"],
+    "imageUrl": "https://i.ibb.co.com/XZq36tBP/image.png",
+    "status": "approved",
+    "createdAt": { "$date": "2025-12-19T08:00:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/bus_economy.jpg",
-    "ticket_title": "Non-AC Economy | Sylhet to Feni",
-    "from_location": {
-      "city": "Sylhet",
-      "code": "KADAMTALI"
-    },
-    "to_location": {
-      "city": "Feni",
-      "code": "FENI-S"
-    },
-    "transport_type": "Bus (Coach)",
-    "price_per_unit": 850.00,
-    "currency": "BDT",
-    "available_quantity": 35,
-    "perks": [
-      "Standard Seating",
-      "Local stops for convenience"
-    ],
-    "departure": {
-      "date": "2025-12-27",
-      "time": "08:00 AM"
-    }
+    "vendorName": "London Express",
+    "vendorEmail": "london@express.com",
+    "ticketTitle": "Volvo 9600",
+    "fromLocation": "Sylhet",
+    "toLocation": "Dhaka",
+    "transportType": "Bus",
+    "price": 1400,
+    "quantity": 28,
+    "departureDate": "2025-12-28",
+    "departureTime": "15:00",
+    "perks": ["WiFi", "Water", "Snacks"],
+    "imageUrl": "https://i.ibb.co.com/cc1LNnWn/image.png",
+    "status": "approved",
+    "createdAt": { "$date": "2025-12-19T08:30:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/train_shovan_chair.jpg",
-    "ticket_title": "Shovan Chair | Chitra Express",
-    "from_location": {
-      "city": "Khulna",
-      "code": "KLN"
-    },
-    "to_location": {
-      "city": "Dhaka",
-      "code": "DHAKA-KMP"
-    },
-    "transport_type": "Train (Intercity)",
-    "price_per_unit": 470.00,
-    "currency": "BDT",
-    "available_quantity": 55,
-    "perks": [
-      "Attached Fan",
-      "Spacious Windows"
-    ],
-    "departure": {
-      "date": "2025-12-27",
-      "time": "09:00 AM"
-    }
+    "vendorName": "US-Bangla",
+    "vendorEmail": "info@usb.com",
+    "ticketTitle": "USB-205",
+    "fromLocation": "Dhaka",
+    "toLocation": "Saidpur",
+    "transportType": "Flight",
+    "price": 4000,
+    "quantity": 10,
+    "departureDate": "2025-12-30",
+    "departureTime": "09:30",
+    "perks": ["Complimentary Meal", "Quick Boarding"],
+    "imageUrl": "https://i.ibb.co.com/hF17P5nf/image.png",
+    "status": "pending",
+    "createdAt": { "$date": "2025-12-19T09:00:00.000Z" },
+    "isAdvertised": true
   },
   {
-    "image_url": "https://example.com/images/bus_local.jpg",
-    "ticket_title": "Non-AC Local | Khulna to Jessore",
-    "from_location": {
-      "city": "Khulna",
-      "code": "RUPSHA"
-    },
-    "to_location": {
-      "city": "Jessore",
-      "code": "JSR-C"
-    },
-    "transport_type": "Bus (Local)",
-    "price_per_unit": 180.00,
-    "currency": "BDT",
-    "available_quantity": 60,
-    "perks": [
-      "Affordable Fare",
-      "Frequent Service"
-    ],
-    "departure": {
-      "date": "2025-12-25",
-      "time": "11:30 AM"
-    }
-  },
-  {
-    "image_url": "https://example.com/images/train_ac_chair_long.jpg",
-    "ticket_title": "AC Chair | Ekata Express",
-    "from_location": {
-      "city": "Dinajpur",
-      "code": "DNJ"
-    },
-    "to_location": {
-      "city": "Dhaka",
-      "code": "DHAKA-KMP"
-    },
-    "transport_type": "Train (Intercity)",
-    "price_per_unit": 950.00,
-    "currency": "BDT",
-    "available_quantity": 25,
-    "perks": [
-      "Air-Conditioned Compartment",
-      "Clean Washrooms",
-      "Power Outlets"
-    ],
-    "departure": {
-      "date": "2025-12-24",
-      "time": "08:00 PM"
-    }
-  },
-  {
-    "image_url": "https://example.com/images/bus_express_ac.jpg",
-    "ticket_title": "AC Express | Dhaka to Kishoreganj",
-    "from_location": {
-      "city": "Dhaka",
-      "code": "MOHAKHALI"
-    },
-    "to_location": {
-      "city": "Kishoreganj",
-      "code": "KIS"
-    },
-    "transport_type": "Bus (Coach)",
-    "price_per_unit": 700.00,
-    "currency": "BDT",
-    "available_quantity": 12,
-    "perks": [
-      "Air Conditioning",
-      "Direct Route",
-      "Quick Travel Time"
-    ],
-    "departure": {
-      "date": "2025-12-26",
-      "time": "07:30 AM"
-    }
-  },
-  {
-    "image_url": "https://example.com/images/train_shovan.jpg",
-    "ticket_title": "Shovan Chair | Brahmaputra Express",
-    "from_location": {
-      "city": "Mymensingh",
-      "code": "MYM"
-    },
-    "to_location": {
-      "city": "Dhaka",
-      "code": "DHAKA-KMP"
-    },
-    "transport_type": "Train (Local)",
-    "price_per_unit": 250.00,
-    "currency": "BDT",
-    "available_quantity": 70,
-    "perks": [
-      "Cushioned Seat",
-      "Budget-Friendly"
-    ],
-    "departure": {
-      "date": "2025-12-28",
-      "time": "05:45 AM"
-    }
-  },
-  {
-    "image_url": "https://example.com/images/bus_double_deck.jpg",
-    "ticket_title": "Luxury AC Double-Deck | Rangpur to Dhaka",
-    "from_location": {
-      "city": "Rangpur",
-      "code": "RNG-S"
-    },
-    "to_location": {
-      "city": "Dhaka",
-      "code": "GABTOLI"
-    },
-    "transport_type": "Bus (Coach)",
-    "price_per_unit": 1700.00,
-    "currency": "BDT",
-    "available_quantity": 14,
-    "perks": [
-      "Upper Deck Views",
-      "Air Conditioning",
-      "Dedicated Host/Hostess Service"
-    ],
-    "departure": {
-      "date": "2025-12-23",
-      "time": "09:00 PM"
-    }
-  },
-  {
-    "image_url": "https://example.com/images/train_first_class.jpg",
-    "ticket_title": "First Seat | Turna Express",
-    "from_location": {
-      "city": "Dhaka",
-      "code": "DHAKA-KMP"
-    },
-    "to_location": {
-      "city": "Chattogram",
-      "code": "CHT"
-    },
-    "transport_type": "Train (Intercity)",
-    "price_per_unit": 650.00,
-    "currency": "BDT",
-    "available_quantity": 22,
-    "perks": [
-      "Reserved First Class Seating",
-      "Snacks Included",
-      "More Legroom"
-    ],
-    "departure": {
-      "date": "2025-12-27",
-      "time": "11:30 PM"
-    }
-  },
-  {
-    "image_url": "https://example.com/images/bus_ac.jpg",
-    "ticket_title": "AC Semi-Sleeper | Dhaka to Cumilla",
-    "from_location": {
-      "city": "Dhaka",
-      "code": "SAYEDABAD"
-    },
-    "to_location": {
-      "city": "Cumilla",
-      "code": "CUM-T"
-    },
-    "transport_type": "Bus (Coach)",
-    "price_per_unit": 450.00,
-    "currency": "BDT",
-    "available_quantity": 28,
-    "perks": [
-      "Air Conditioning",
-      "Reclining Seat",
-      "Quick Commute"
-    ],
-    "departure": {
-      "date": "2025-12-28",
-      "time": "04:00 PM"
-    }
+ 
+  "vendorName": "Fahmida Rahman Oni",
+  "vendorEmail": "onifahmida@gmail.com",
+  "ticketTitle": "Tisha Express",
+  "fromLocation": "Chattogram",
+  "toLocation": "Bogura",
+  "transportType": "Train",
+  "price": 500,
+  "quantity": "40",
+  "departureDate": "2025-12-27",
+  "departureTime": "21:29",
+  "perks": [
+    "Breakfast",
+    "PriorityBoarding",
+    "AC"
+  ],
+  "imageUrl": "https://i.ibb.co.com/8nQ4Yf2G/image.png",
+  "status": "rejected",
+  "createdAt": {
+    "$date": "2025-12-18T10:29:44.644Z"
   }
+},
+{
+
+  "vendorName": "David tecla",
+  "vendorEmail": "david@email.com",
+  "ticketTitle": "Modhumoti Express",
+  "fromLocation": "Dhaka",
+  "toLocation": "Barisal",
+  "transportType": "Train",
+  "price": 500,
+  "quantity": 79,
+  "departureDate": "2025-12-27",
+  "departureTime": "03:40",
+  "perks": [
+    "AC",
+    "ChargingPorts",
+    "PriorityBoarding"
+  ],
+  "imageUrl": "https://i.ibb.co.com/VcTfchqW/image.png",
+  "status": "approved",
+  "createdAt": {
+    "$date": "2025-12-18T18:41:01.672Z"
+  },
+  "isAdvertised": true
+},
+{
+  "vendorName": "David tecla",
+  "vendorEmail": "david@email.com",
+  "ticketTitle": "Chttala Airlines",
+  "fromLocation": "Dhaka",
+  "toLocation": "Chattogram",
+  "transportType": "Flight",
+  "price": "300",
+  "quantity": "51",
+  "departureDate": "2025-12-31",
+  "departureTime": "02:42",
+  "perks": [
+    "AC",
+    "Breakfast",
+    "WiFi"
+  ],
+  "imageUrl": "https://i.ibb.co.com/20nf8Fb0/image.png",
+  "status": "approved",
+  "createdAt": {
+    "$date": "2025-12-18T18:42:47.925Z"
+  },
+  "isAdvertised": true
+}
+ 
+
+
+
 ]
