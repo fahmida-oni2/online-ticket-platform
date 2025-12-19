@@ -7,11 +7,11 @@ const About = () => {
         About Us
       </h2>
       <p className=" mb-12 italic text-center text-black animate__animated animate__fadeInUp max-w-3xl mx-auto">
-        RailTransitHub: Train Travel All In One Place <br />
-RailTransitHub is the premier platform designed to offer a modern, efficient, and comprehensive rail travel experience, centralizing all your train ticketing and journey management needs.
+        Ticket Hub:  Travel All In One Place <br />
+Ticket Hub is the premier platform designed to offer a modern, efficient, and comprehensive  travel experience, centralizing all your  ticketing and journey management needs.
       </p>
       <div className="flex mb-5 justify-center items-center">
-     <img src="https://i.ibb.co.com/gbpjgPyY/image.png" alt="" className="h-100 w-150" />
+     <img src="https://i.ibb.co.com/BHByJdCb/happy-lovely-young-woman-orange-t-shirt-showing-plane-tickets-with-yellow-suitcase-pink-wall.jpg" alt="" className="h-100 w-150" />
       </div>
  
       {/* what we offer */}
@@ -21,7 +21,7 @@ RailTransitHub is the premier platform designed to offer a modern, efficient, an
             What We Offer
           </h1>
           <h3 className="text-gray-600 mb-12 text-center animate__animated animate__fadeInUp max-w-3xl mx-auto">
-            RailTransitHub transforms the frustrating uncertainty of waitlisted tickets and plan changes into a guaranteed, flexible, and stress-free booking experience.
+            Ticket Hub transforms the frustrating uncertainty of waitlisted tickets and plan changes into a guaranteed, flexible, and stress-free booking experience.
           </h3>
         </div>
         <div className="space-y-3 mt-3 lg:flex  lg:justify-evenly">
@@ -40,7 +40,7 @@ RailTransitHub is the premier platform designed to offer a modern, efficient, an
                   Real-Time Schedules
                 </h3>
                 <p className="text-gray-500 text-center">
-                 Access up-to-the-minute train timetables, departure, and arrival information.
+                 Access up-to-the-minute travel timetables, departure, and arrival information.
                 </p>
               </div>
         
@@ -49,7 +49,7 @@ RailTransitHub is the premier platform designed to offer a modern, efficient, an
                   Hassle-Free Modifications
                 </h3>
                 <p className="text-gray-500 text-center">
-                  Quickly modify, change, or cancel your existing train bookings directly through the app or website.
+                  Quickly modify, change, or cancel your existing ticket bookings directly through the app or website.
                 </p>
               </div>
                <div className="flex flex-col items-center bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition transform hover:scale-105 animate__animated animate__fadeInRight">

@@ -46,6 +46,7 @@ export const router = createBrowserRouter([
             <Tickets></Tickets>
           </PrivateRoutes>
         ),
+         loader: () => fetch("/service.json"),
       },
 
          {

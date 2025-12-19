@@ -30,7 +30,7 @@ const ManageTickets = () => {
         }
       })
       .catch((err) => {
-        console.error(err);
+        // console.error(err);
         Swal.fire("Error", "Could not update status", "error");
       });
   };

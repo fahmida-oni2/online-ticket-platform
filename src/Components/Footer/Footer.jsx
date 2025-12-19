@@ -19,9 +19,9 @@ const Footer = () => {
 
             <div className="text-center">
               <p>
-                RailTransit Hub
+                Ticket Hub
                 <br />
-                Book your train tickets easily
+                Book your travel tickets easily
               </p>
             </div>
           </aside>
@@ -57,7 +57,7 @@ const Footer = () => {
         <div className="flex justify-center items-center mt-10">
           <p>
             {" "}
-            © {new Date().getFullYear()} RailTransit Hub: All right reserved
+            © {new Date().getFullYear()} Ticket Hub: All right reserved
           </p>
         </div>
       </div>
