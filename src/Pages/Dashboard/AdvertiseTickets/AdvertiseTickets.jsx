@@ -1,10 +1,10 @@
 import React, { use } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
-import Loading from '../../../components/Loading/Loading';
 import Swal from 'sweetalert2';
 import Table from '../../../Components/Table/Table';
 import { AuthContext } from '../../../Provider/AuthProvider';
+import Loading from '../../../Components/Loading/Loading';
 
 const AdvertiseTickets = () => {
     const { user } = use(AuthContext); 

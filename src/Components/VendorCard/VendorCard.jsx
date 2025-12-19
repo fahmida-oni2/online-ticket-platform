@@ -2,7 +2,6 @@ import React from "react";
 import { Toaster } from "react-hot-toast";
 import { MdDelete } from "react-icons/md";
 import { RxUpdate } from "react-icons/rx";
-import { Link } from "react-router";
 
 const VendorCard = ({ ticket, onDelete, onEdit }) => {
   const {

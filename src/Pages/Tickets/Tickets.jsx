@@ -3,8 +3,8 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Card from "../../Components/Card/Card";
-import Loading from "../../components/Loading/Loading";
 import { useLoaderData } from "react-router";
+import Loading from "../../Components/Loading/Loading";
 
 const Tickets = () => {
   const axiosSecure = useAxiosSecure();

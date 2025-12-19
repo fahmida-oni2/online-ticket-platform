@@ -3,7 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { AuthContext } from "../../../Provider/AuthProvider";
-import Loading from "../../../components/Loading/Loading";
+import Loading from "../../../Components/Loading/Loading";
+
 
 const ReqBookings = () => {
   const axiosSecure = useAxiosSecure();

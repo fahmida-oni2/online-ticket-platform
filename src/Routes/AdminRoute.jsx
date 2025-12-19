@@ -1,7 +1,7 @@
 import React, { use } from 'react';
-import Loading from '../components/Loading/Loading';
 import useRole from '../Hooks/useRole';
 import { AuthContext } from '../Provider/AuthProvider';
+import Loading from '../Components/Loading/Loading';
 
 const AdminRoute = ({ children }) => {
     const { loading } = use(AuthContext);
