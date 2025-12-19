@@ -1,7 +1,7 @@
 import React from "react";
 import Marquee from "react-fast-marquee";
 
-const choosingSection = () => {
+const ChoosingSection = () => {
   return (
     <>
      
@@ -9,10 +9,10 @@ const choosingSection = () => {
         Why Choose Us
       </h2>
       <p className="text-center mb-5 animate__animated animate__fadeInUp ">
-        To experience a user-friendly and easy-to-use platform for train booking
-        online, RailTransit Hub offers a seamless train tickets booking
+        To experience a user-friendly and easy-to-use platform for ticket booking
+        online, Ticket Hub offers a seamless travel tickets booking
         experience for passengers. Take a look at the reasons why you should opt
-        for RailTransit Hub to book train tickets online.
+        for Ticket Hub to book travel tickets online.
       </p>
       <Marquee pauseOnClick pauseOnHover speed={30}>
         <div className="card  w-96 h-80 shadow-sm mb-10 mr-5 bg-sky-200">
@@ -26,8 +26,8 @@ const choosingSection = () => {
           <div className="card-body items-center text-center">
             <h2 className="card-title">Connecting trains,buses,flights</h2>
             <p>
-              Find connecting travels with available seats,when direct tickets are
-              waitlisted.
+              Find, connecting travels with available seats
+              .
             </p>
           </div>
         </div>
@@ -83,4 +83,4 @@ const choosingSection = () => {
   );
 };
 
-export default choosingSection;
+export default ChoosingSection;
