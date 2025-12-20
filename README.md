@@ -1,5 +1,10 @@
 **Ticket Hub - A online ticket booking platform**: TicketHub is a MERN-stack platform that simplifies travel by allowing users to search, book, and pay for bus, train and flight tickets through a secure, responsive interface.The system features a multi-role ecosystem where users track bookings with real-time countdowns, vendors manage inventory with revenue dashboards, and admins moderate the marketplace.Built for efficiency and security, it integrates Firebase authentication and Stripe payments with advanced search, filtering for a premium booking experience.
 
+## Live Link: 
+## Client:https://online-ticket-platform-vlv7.vercel.app/
+## Server:https://ticket-hub-server.vercel.app/
+## Server Repository:https://github.com/fahmida-oni2/online-ticket-server.git
+
 ## Key Features
 ### Authentication & Security
 * Multi-role access control for User, Vendor, and Admin roles.
@@ -78,9 +83,25 @@ To install and run this MERN stack project locally, follow these steps. Please n
 * Run `npm run dev` to start the development server.
 * Open the provided local link (usually `http://localhost:5173`) in your browser.
 
-## Live Link: 
-## Client:https://online-ticket-platform-vlv7.vercel.app/
-## Server:https://ticket-hub-server.vercel.app/
-
-## Server Repository:https://github.com/fahmida-oni2/online-ticket-server.git
+ ## "dependencies":
+   {
+    "@tailwindcss/vite": "^4.1.17",
+    "@tanstack/react-query": "^5.90.12",
+    "animate.css": "^4.1.1",
+    "axios": "^1.13.2",
+    "cally": "^0.8.0",
+    "firebase": "^12.6.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-fast-marquee": "^1.6.5",
+    "react-hook-form": "^7.68.0",
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.5.0",
+    "react-responsive-carousel": "^3.2.23",
+    "react-router": "^7.10.1",
+    "recharts": "^3.6.0",
+    "sweetalert2": "^11.26.10",
+    "swiper": "^12.0.3",
+    "tailwindcss": "^4.1.17"
+  },
 
