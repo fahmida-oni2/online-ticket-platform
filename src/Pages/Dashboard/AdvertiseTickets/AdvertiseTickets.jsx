@@ -61,7 +61,7 @@ const AdvertiseTickets = () => {
         <div className="p-6 bg-gray-50 min-h-screen ">
             <div className="max-w-7xl mx-auto">
                 <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-3xl font-bold text-gray-800">Manage Advertisements</h1>
+                    <h1 className="text-3xl font-bold text-sky-800">Manage Advertisements</h1>
                     <div className="bg-purple-100 text-purple-700 px-4 py-2 rounded-lg font-bold">
                         Slot Usage: {tickets.filter(t => t.isAdvertised).length} 
                     </div>

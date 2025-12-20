@@ -16,7 +16,7 @@ const TransHistory = () => {
   });
   return (
     <div>
-      <h2 className="text-4xl text-center  mb-5">Payment History</h2>
+      <h2 className="text-4xl text-center text-sky-800  mb-5">Payment History</h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
           {/* head */}

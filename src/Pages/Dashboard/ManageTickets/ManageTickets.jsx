@@ -43,7 +43,7 @@ const ManageTickets = () => {
   };
   return (
     <div>
-      <h2 className="text-4xl text-center mb-5 mt-5">Vendors Pending Approval: {vendor.length} </h2>
+      <h2 className="text-4xl text-center text-sky-800 mb-5 mt-5">Vendors Pending Approval: {vendor.length} </h2>
       <div className="overflow-x-auto">
         <table className="table table-zebra">
          

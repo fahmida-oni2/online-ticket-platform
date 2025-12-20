@@ -36,29 +36,32 @@ const Footer = () => {
             <nav className="flex flex-col items-center space-y-3">
               <h6 className="footer-title ">Contact Info</h6>
 
-              <a href="mailto:railtransit@gmail.com">
-                <MdMarkEmailRead className="w-30 h-7" />
+              <a className="flex">
+                <MdMarkEmailRead className="w-10 h-7" />
+                <p>tickethub@gmail.com</p>
               </a>
 
-              <a href="tel:+8801745203494">
-                <FaPhone className="w-30 h-7" />
+              <a className="flex">
+                <FaPhone className="w-10 h-7" />
+                <p>tel:+8801745203494</p>
               </a>
 
-              <a href="#">
-                <CiFacebook className="w-30 h-7" />
+              <a className="flex">
+                <CiFacebook className="w-10 h-7" />
+                <p>www.tickethub.com</p>
               </a>
             </nav>
             <nav className="flex flex-col items-center">
               <h6 className="footer-title">Payment Methods</h6>
-              <a href="https://stripe.com/">Stripe.com</a>
+           <div className="flex gap-5">
+               <a href="https://stripe.com/"><img src="https://i.ibb.co.com/wh7yrvZf/image.png" alt="" className="h-10 w-10 rounded-2xl" /></a>
+               <a href="https://stripe.com/"><img src="https://i.ibb.co.com/FQxbYCL/image.png" alt="" className="h-10 w-10 rounded-2xl" /></a>
+           </div>
             </nav>
           </div>
         </div>
         <div className="flex justify-center items-center mt-10">
-          <p>
-            {" "}
-            © {new Date().getFullYear()} Ticket Hub: All right reserved
-          </p>
+          <p> © {new Date().getFullYear()} Ticket Hub: All right reserved</p>
         </div>
       </div>
     </footer>

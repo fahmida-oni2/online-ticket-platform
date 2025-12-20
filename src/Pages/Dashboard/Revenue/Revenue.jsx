@@ -26,8 +26,8 @@ const Revenue = () => {
         { name: 'Total Revenue', value: revenue?.totalRevenue || 0, fill: 'red' },
     ];
     return (
-        <div className="p-6 bg-white text-black rounded-lg shadow-md">
-            <h2 className="text-2xl font-bold mb-6 text-center text-black">Revenue Overview  </h2>
+        <div className="p-6 bg-white text-sky-800 rounded-lg shadow-md">
+            <h2 className="text-2xl font-bold mb-6 text-center text-sky-800">Revenue Overview  </h2>
             
             <div style={{ width: '100%', height: 400 }}>
                 <ResponsiveContainer width="100%" height="100%">

@@ -55,7 +55,7 @@ const ManageUsers = () => {
 
   return (
     <div>
-      <h2 className="text-4xl text-center mt-5 mb-5">Manage Users</h2>
+      <h2 className="text-4xl text-center text-sky-800 mt-5 mb-5">Manage Users</h2>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

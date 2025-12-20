@@ -91,7 +91,7 @@ const UpdateTicket = ({ ticket, onClose,refetch  }) => {
   };
   return (
     <ModalOverlay onClose={onClose}>
-      <h3 className="text-2xl font-bold mb-4 text-black">
+      <h3 className="text-2xl font-bold mb-4 text-sky-800">
         Edit Ticket: {ticket.ticketTitle}
       </h3>
       <form onSubmit={handleSubmit} className="space-y-4 text-black">
@@ -220,7 +220,7 @@ const UpdateTicket = ({ ticket, onClose,refetch  }) => {
                     value={perk.value}
                     checked={formData.perks.includes(perk.value)}
                     onChange={handleChange}
-                    className="checkbox"
+                    className="checkbox bg-sky-400"
                     disabled={updateMutation.isPending}
                   />
                 </label>

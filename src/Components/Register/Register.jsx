@@ -80,7 +80,7 @@ const Register = () => {
     <div className="hero bg-base-200 min-h-screen ">
       <div className="hero-content flex-col lg:flex">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Register Now!</h1>
+          <h1 className="text-5xl text-sky-800 font-bold">Register Now!</h1>
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <form onSubmit={handleRegister} className="card-body ">
@@ -130,14 +130,14 @@ const Register = () => {
                   )}
                 </span>
               </div>
-              <button type="submit" className="btn btn-neutral mt-4 p-5 ">
+              <button type="submit" className="btn bg-sky-800 text-white rounded-2xl mt-4 p-5 ">
                 Register
               </button>
             </fieldset>
           </form>
           <button
             onClick={handleGoogleSignIn}
-            className="btn  btn-primary text-white border-[#e5e5e5] p-5 m-6 mt-0 mb-0"
+            className="btn rounded-2xl btn-primary text-white border-[#e5e5e5] p-5 m-6 mt-0 mb-0"
           >
             <svg
               aria-label="Google logo"
@@ -170,7 +170,7 @@ const Register = () => {
           </button>
           <p className="mt-3 mb-5 font-semibold text-center">
             Already have an account?{" "}
-            <Link to="/auth/login" className="text-blue-600">
+            <Link to="/auth/login" className="text-sky-800">
               Login
             </Link>
           </p>

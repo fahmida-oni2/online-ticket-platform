@@ -39,7 +39,7 @@ const Guideline = () => {
     return (
         <div className='py-12 bg-gray-50 overflow-hidden'>
             <div className='container mx-auto px-4'>
-                <h2 className="text-4xl text-center text-black font-bold mb-4">
+                <h2 className="text-4xl text-center text-sky-800 font-bold mb-4">
                     Guideline
                 </h2>
                 <p className="text-center mb-10 text-gray-600 max-w-2xl mx-auto">

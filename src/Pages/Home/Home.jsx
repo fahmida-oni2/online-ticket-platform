@@ -3,7 +3,8 @@ import Banner from '../../Components/Banner/Banner';
 import Guideline from '../../Components/Guideline/Guideline';
 import Advertisements from '../../Components/Advertisements/Advertisements';
 import LatestTickets from '../../Components/LatestTickets/LatestTickets';
-import ChoosingSection from '../../Components/ChoosingSection/choosingSection';
+import WhyUs from '../../Components/WhyUs/WhyUs';
+
 
 
 const Home = () => {
@@ -19,7 +20,7 @@ const Home = () => {
                 <LatestTickets></LatestTickets>
             </section>
             <section>
-          <ChoosingSection></ChoosingSection>
+            <WhyUs></WhyUs>
             </section>
             <section>
                 <Guideline></Guideline>

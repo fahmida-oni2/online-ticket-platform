@@ -21,7 +21,7 @@ const LatestTickets = () => {
     <div className="py-12 bg-white">
       <div className=" mx-auto px-4">
         <div className="mb-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+          <h2 className="text-3xl md:text-4xl font-bold text-sky-800">
             Available Tickets
           </h2>
           <p className="text-gray-500 mt-2">Check out our latest tickets</p>
@@ -33,7 +33,7 @@ const LatestTickets = () => {
               key={l._id}
               className=" mx-4 border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-sky-50 flex flex-col"
             >
-              <div className=" h-60 flex justify-center">
+              <div className=" h-50 flex justify-center">
                 <img
                   src={l.imageUrl}
                   alt={l.ticketTitle}
@@ -85,7 +85,7 @@ const LatestTickets = () => {
                 <div className="flex justify-center text-center items-center mt-4">
                   <Link
                     to={`/all-tickets/${l._id}`}
-                    className="bg-sky-800 text-white  w-full  px-6 py-2 rounded-2xl hover:bg-gray-800 transition-colors font-medium"
+                    className="bg-sky-800 text-white  w-full  px-6 py-2 rounded-2xl hover:bg-sky-900 transition-colors font-medium"
                   >
                     View Details
                   </Link>

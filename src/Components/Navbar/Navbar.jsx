@@ -35,13 +35,34 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
+       <li>
+        <div className="flex justify-start m-2">
+          <input
+            onChange={(e) => handleTheme(e.target.checked)}
+            type="checkbox"
+            checked={theme === "dark"}
+            className="toggle"
+          />
+        </div>
+      </li>
+      <li>
+        <NavLink to="/tickets" className="m-2">
+          All Tickets
+        </NavLink>
+      </li>
+        <li>
+        <NavLink to="/about" className="m-2">
+          About Us
+        </NavLink>
+      </li>
+        <li>
+        <NavLink to="/contact" className="m-2">
+        Contact
+        </NavLink>
+      </li>
+     
       {user && (
         <>
-          <li>
-            <NavLink to="/tickets" className="m-2">
-              All Tickets
-            </NavLink>
-          </li>
           <li>
             <NavLink to="/dashboard" className="m-2">
               Dashboard
@@ -89,15 +110,6 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className="flex justify-center items-center">
-        <input
-          onChange={(e) => handleTheme(e.target.checked)}
-          type="checkbox"
-          checked={theme === "dark"}
-          className="toggle"
-        />
-      </div>
-
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
@@ -116,7 +128,7 @@ const Navbar = () => {
               <div className="absolute right-0 mt-1 w-48 z-10 bg-white rounded-md shadow-lg border border-gray-200 p-2">
                 <Link
                   to="/dashboard/profile"
-                  className="btn w-full rounded-2xl mb-2"
+                  className="btn w-full bg-sky-800 rounded-2xl mb-2"
                 >
                   My profile
                 </Link>

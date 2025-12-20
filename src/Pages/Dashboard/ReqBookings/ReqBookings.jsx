@@ -41,7 +41,7 @@ const ReqBookings = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-3xl font-semibold mb-6">Requested Bookings</h2>
+      <h2 className="text-3xl text-sky-800 text-center font-semibold mb-6">Requested Bookings</h2>
       <div className="overflow-x-auto shadow-xl rounded-box">
         <table className="table w-full">
           <thead className="bg-base-200">

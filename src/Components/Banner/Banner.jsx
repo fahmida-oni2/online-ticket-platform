@@ -32,7 +32,7 @@ const Banner = () => {
           >
             <div className="hero-overlay "></div>
             <div className="hero-content text-white flex justify-center items-center p-4">
-              <div className="space-y-6 text-center  lg:mr-10 ">
+              <div className="space-y-6 text-center   lg:mr-10  ">
                 <h1 className="mb-5 text-3xl font-bold  animate__animated animate__fadeInLeft">
                   TicketHub: Fly, Drive, or Ride in Just One Click
                 </h1>
@@ -55,12 +55,12 @@ const Banner = () => {
             className="hero h-100 w-full  bg-no-repeat "
             style={{
               backgroundImage:
-                "url(https://i.ibb.co.com/5XVfDwYW/freepik-talk-28605.png)",
+                "url(https://i.ibb.co.com/Mk25sCTd/christmas-travel-concept-with-airplane.jpg)",
             }}
           >
             <div className="hero-overlay "></div>
             <div className="hero-content text-white flex justify-center items-center p-4">
-              <div className="space-y-6 text-center lg:text-left lg:mr-10">
+              <div className="space-y-6 text-center lg:text-left lg:mr-10 ">
                 <h2 className="text-2xl text-center lg:text-4xl font-bold  ">
                   What TicketHub Offers?
                 </h2>

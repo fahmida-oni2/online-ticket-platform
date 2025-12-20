@@ -1,14 +1,14 @@
-import React from "react";
-import Marquee from "react-fast-marquee";
+import React from 'react';
+import Marquee from 'react-fast-marquee';
 
-const ChoosingSection = () => {
-  return (
+const WhyUs = () => {
+   return (
     <>
      
-      <h2 className="text-4xl text-center text-black  font-bold mb-4 mt-5 animate__animated animate__fadeInDown">
+      <h2 className="text-4xl text-center text-sky-800  font-bold mb-4 mt-5 animate__animated animate__fadeInDown">
         Why Choose Us
       </h2>
-      <p className="text-center mb-5 animate__animated animate__fadeInUp ">
+      <p className="text-center text-gray-500 mb-5 animate__animated animate__fadeInUp ">
         To experience a user-friendly and easy-to-use platform for ticket booking
         online, Ticket Hub offers a seamless travel tickets booking
         experience for passengers. Take a look at the reasons why you should opt
@@ -83,4 +83,4 @@ const ChoosingSection = () => {
   );
 };
 
-export default ChoosingSection;
+export default WhyUs;
