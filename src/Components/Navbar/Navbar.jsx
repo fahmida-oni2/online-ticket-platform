@@ -128,7 +128,7 @@ const Navbar = () => {
               <div className="absolute right-0 mt-1 w-48 z-10 bg-white rounded-md shadow-lg border border-gray-200 p-2">
                 <Link
                   to="/dashboard/profile"
-                  className="btn w-full bg-sky-800 rounded-2xl mb-2"
+                  className="btn w-full bg-sky-800 text-white rounded-2xl mb-2"
                 >
                   My profile
                 </Link>
