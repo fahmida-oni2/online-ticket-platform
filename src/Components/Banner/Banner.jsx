@@ -52,7 +52,7 @@ const itemVariants = {
 
 const Banner = () => {
   return (
-    <section className="w-full h-[60vh] md:h-[80vh] my-6">
+    <section className="w-full h-[60vh] md:h-[80vh] my-6 mt-0">
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         effect="fade"
