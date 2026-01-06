@@ -5,7 +5,7 @@ import { MdMarkEmailRead } from "react-icons/md";
 import { Link } from "react-router";
 const Footer = () => {
   return (
-    <footer className="  bg-sky-950 text-white flex justify-center items-center md:flex-col ml-5 mr-5  p-5  ">
+    <footer className="  bg-sky-950 text-white flex justify-center items-center md:flex-col   p-5  ">
       <div className=" ">
         <div className="flex flex-col lg:flex-row lg:gap-40   justify-center   ">
           <aside className="lg:mr-5 ">
