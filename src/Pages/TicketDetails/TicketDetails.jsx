@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { use, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast, { Toaster } from "react-hot-toast";
 import Loading from "../../Components/Loading/Loading";
-import { useParams } from "react-router";
+import { Navigate, useParams } from "react-router";
 import useCountdown from "../../Hooks/useCountdown";
 import BookingModal from "../../Components/BookingModal/BookingModal";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const TicketDetails = () => {
   const { id } = useParams();
+  const { user } = use(AuthContext);
   const axiosSecure = useAxiosSecure();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { data: ticket, isPending } = useQuery({
@@ -37,6 +39,18 @@ const TicketDetails = () => {
   const isTicketExpired = isPassed;
   const isOutOfStock = ticket.quantity <= 0;
   const isBookNowDisabled = isTicketExpired || isOutOfStock;
+
+  const handleBookNowClick = () => {
+    if (!user) {
+      // User is not logged in
+      toast.error("Please login to book a ticket!");
+      return Navigate("/auth/login", { state: { from: location } }); // Redirect to login
+    }
+    
+    // User is logged in, open the modal
+    setIsModalOpen(true);
+  };
+
   const formatCountdown = () => {
     if (!countdown) return "Calculating...";
     if (isPassed) return "EXPIRED";
@@ -112,7 +126,7 @@ const TicketDetails = () => {
         {/* Book Now Button */}
         <div className="mt-6 text-center">
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={handleBookNowClick}
             className={`px-12 py-3 text-xl rounded-3xl font-semibold  transition duration-200 ${
               isBookNowDisabled
                 ? "bg-gray-400 cursor-not-allowed"
@@ -128,7 +142,7 @@ const TicketDetails = () => {
           </button>
         </div>
 
-        {isModalOpen && !isBookNowDisabled && (
+        {isModalOpen && user && !isBookNowDisabled && (
           <BookingModal ticket={ticket} onClose={() => setIsModalOpen(false)} />
         )}
       </div>

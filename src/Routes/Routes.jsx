@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     Component: Root,
-   
+
     errorElement: <ErrorPage></ErrorPage>,
     hydrateFallbackElement: <Loading></Loading>,
     children: [
@@ -41,21 +41,14 @@ export const router = createBrowserRouter([
       },
       {
         path: "/tickets",
-        element: (
-          <PrivateRoutes>
-            <Tickets></Tickets>
-          </PrivateRoutes>
-        ),
-         loader: () => fetch("/service.json"),
+        element: <Tickets></Tickets>,
+        loader: () => fetch("/service.json"),
       },
 
-         {
-            path:'/all-tickets/:id',
-           element: (
-          <PrivateRoutes><TicketDetails></TicketDetails></PrivateRoutes>
-           ),
-          
-        },
+      {
+        path: "/all-tickets/:id",
+        element: <TicketDetails></TicketDetails>,
+      },
 
       {
         path: "/contact",
@@ -104,17 +97,17 @@ export const router = createBrowserRouter([
         path: "my-tickets",
         element: <MyTickets></MyTickets>,
       },
-       {
+      {
         path: "payment/:ticketId",
         element: <Payment></Payment>,
       },
       {
         path: "payment-success",
-        element:<PaymentSuccess></PaymentSuccess>,
+        element: <PaymentSuccess></PaymentSuccess>,
       },
       {
         path: "payment-cancelled",
-        element:<PaymentCancelled></PaymentCancelled>,
+        element: <PaymentCancelled></PaymentCancelled>,
       },
       {
         path: "trans-history",
@@ -139,17 +132,29 @@ export const router = createBrowserRouter([
       },
       {
         path: "manage-tickets",
-        element: <AdminRoute><ManageTickets></ManageTickets>,</AdminRoute>
+        element: (
+          <AdminRoute>
+            <ManageTickets></ManageTickets>,
+          </AdminRoute>
+        ),
       },
       {
         path: "manage-users",
-        element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>,
+        element: (
+          <AdminRoute>
+            <ManageUsers></ManageUsers>
+          </AdminRoute>
+        ),
       },
       {
         path: "advertise-tickets",
-        element:<AdminRoute> <AdvertiseTickets></AdvertiseTickets></AdminRoute>,
+        element: (
+          <AdminRoute>
+            {" "}
+            <AdvertiseTickets></AdvertiseTickets>
+          </AdminRoute>
+        ),
       },
-       
     ],
   },
 ]);
