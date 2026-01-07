@@ -64,23 +64,23 @@ const Login = () => {
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <form onSubmit={handleLogin} className="card-body">
             <fieldset className="fieldset">
-              <label className="label">Email</label>
+              <label className="label text-black">Email</label>
               <input
                 name="email"
                 type="email"
                 ref={emailRef}
                 className="input"
-                placeholder="Email"
+               
                 required
               />
-              <label className="label  ">Password</label>
+              <label className="label text-black  ">Password</label>
               <div className="relative">
                 
                 <input
                   name="password"
                   type={show ? "text" : "password"}
                   className="input"
-                  placeholder="Password"
+                  
                   required
                 />
                 <span

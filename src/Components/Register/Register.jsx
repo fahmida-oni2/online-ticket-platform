@@ -85,38 +85,38 @@ const Register = () => {
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <form onSubmit={handleRegister} className="card-body ">
             <fieldset className="fieldset">
-              <label className="label">Name</label>
+              <label className="label text-black">Name</label>
               <input
                 name="name"
                 type="text"
                 className="input"
-                placeholder="Name"
+             
                 required
               />
-              <label className="label">Email</label>
+              <label className="label text-black">Email</label>
               <input
                 name="email"
                 type="email"
                 className="input"
-                placeholder="Email"
+           
                 required
               />
-              <label className="label">Photo-URL</label>
+              <label className="label text-black">Photo-URL</label>
               <input
                 name="photo"
                 type="photo"
                 className="input"
-                placeholder="Photo-URL"
+               
                 required
               />
 
-              <label className="label">Password</label>
+              <label className="label text-black">Password</label>
               <div className="relative">
                 <input
                   name="password"
                   type={show ? "text" : "password"}
                   className="input"
-                  placeholder="Password"
+                
                   required
                 />
                 <span
