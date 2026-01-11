@@ -1,3 +1,40 @@
 @import "tailwindcss";
 @plugin "daisyui";
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@plugin "daisyui/theme" {
+  name: "Ticket Hub";
+  default: true;
+  color-scheme: dark; /* Darker palette feels more natural for these colors */
+  
+  /* Primary: Using the Prussian Blue for a professional feel */
+  --color-primary: #1b263b;
+  --color-primary-content: #e0e1dd;
+
+  /* Secondary: Using the Dusk Blue for contrast */
+  --color-secondary: #415a77;
+  --color-secondary-content: #ffffff;
+
+  /* Accent: Using the Dusty Denim to draw the eye */
+  --color-accent: #778da9;
+  --color-accent-content: #0d1b2a;
+
+  /* Neutral: The Ink Black works perfectly for UI elements */
+  --color-neutral: #0d1b2a;
+  --color-neutral-content: #e0e1dd;
+
+  /* Base: Using the Alabaster Grey for backgrounds and Prussian for depth */
+  --color-base-100: #e0e1dd; /* The main background */
+  --color-base-200: #778da9; /* Borders/Cards */
+  --color-base-300: #415a77; /* Hover states */
+  --color-base-content: #0d1b2a; /* Main text color */
+
+  /* Standard status colors */
+  --color-info: #415a77;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+
+  --radius-selector: 0.5rem;
+  --border-btn: 1px;
+}

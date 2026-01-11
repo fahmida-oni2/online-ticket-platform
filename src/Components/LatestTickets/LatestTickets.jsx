@@ -18,74 +18,87 @@ const LatestTickets = () => {
   if (latest.length === 0) return null;
 
   return (
-    <div className="py-12 bg-white">
-      <div className=" mx-auto px-4">
-        <div className="mb-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-sky-800">
+    <div className="py-16 bg-base-100">
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-5xl font-black text-primary tracking-tight">
             Available Tickets
           </h2>
-          <p className="text-gray-500 mt-2">Check out our latest tickets</p>
+          <div className="w-20 h-1.5 bg-accent mx-auto mt-4 rounded-full"></div>
+          <p className="text-secondary font-medium mt-4">
+            Discover our most recent travel routes and destinations
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Tickets Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {latest.map((l) => (
             <div
               key={l._id}
-              className=" mx-4 border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-sky-50 flex flex-col"
+              className="group border border-base-200 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 bg-base-100 flex flex-col hover:-translate-y-2"
             >
-              <div className=" h-50 flex justify-center">
+              {/* Image Wrapper */}
+              <div className="relative h-52 overflow-hidden bg-neutral/5">
                 <img
                   src={l.imageUrl}
                   alt={l.ticketTitle}
-                  className="w-100 h-48 mt-5 group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
-               
+                <div className="absolute top-4 left-4">
+                  <span className="badge badge-accent font-bold py-3 px-4 shadow-lg">
+                    {l.transportType}
+                  </span>
+                </div>
               </div>
 
+              {/* Card Content */}
               <div className="p-6 grow flex flex-col">
-                <h3 className="text-xl text-center font-bold text-gray-800 mb-2">
-                  {l.ticketTitle} ({l.transportType})
+                <h3 className="text-lg font-extrabold text-base-content mb-3 leading-tight group-hover:text-primary transition-colors">
+                  {l.ticketTitle}
                 </h3>
-                <div className="text-sm text-gray-600 mb-4 ">
-                  <p className="flex justify-between border-b py-1">
-                    <span>Route:</span>
-                    <span className="font-medium text-black">
+                
+                <div className="space-y-2 text-sm text-secondary mb-6">
+                  <div className="flex justify-between items-center border-b border-base-200 pb-1">
+                    <span className="opacity-70">Route:</span>
+                    <span className="font-bold text-base-content">
                       {l.fromLocation} → {l.toLocation}
                     </span>
-                  </p>
-                  <p className="flex justify-between border-b py-1">
-                    <span>Departure:</span>
-                    <span className="text-black">
-                      {l.departureDate} at {l.departureTime}
+                  </div>
+                  <div className="flex justify-between items-center border-b border-base-200 pb-1">
+                    <span className="opacity-70">Departure:</span>
+                    <span className="font-medium">
+                      {l.departureDate}
                     </span>
-                  </p>
+                  </div>
                 </div>
-                <div className=" mt-2  ">
-                  {l.perks && l.perks.length > 0 && (
+
+                {/* Perks Badge Row */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {l.perks && l.perks.slice(0, 2).map((perk, index) => (
+                    <span key={index} className="text-[10px] uppercase tracking-widest font-bold bg-secondary/10 text-secondary px-2 py-1 rounded">
+                      {perk}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Pricing & Button */}
+                <div className="mt-auto">
+                  <div className="flex justify-between items-end mb-4">
                     <div>
-                      <h2 className="text-xl font-semibold mb-2">
-                        Included Perks:
-                      </h2>
-                      <ul className="list-disc list-inside space-y-1">
-                        {l.perks.map((perk, index) => (
-                          <li key={index}>{perk}</li>
-                        ))}
-                      </ul>
+                      <p className="text-xs font-bold text-accent uppercase">Price</p>
+                      <span className="text-xl font-black text-primary">
+                        {l.price} <small className="text-xs font-normal">TK</small>
+                      </span>
                     </div>
-                  )}
-                </div>
-                <div className="flex justify-between mt-5">
-                  <span className="font-bold text-gray-600">
-                    {l.price} TK (per person)
-                  </span>
-                  <p className="  text-sky-600">
-                    Available seats: {l.quantity}
-                  </p>
-                </div>
-                <div className="flex justify-center text-center items-center mt-4">
+                    <p className="text-xs font-medium text-secondary italic">
+                      {l.quantity} seats left
+                    </p>
+                  </div>
+                  
                   <Link
                     to={`/all-tickets/${l._id}`}
-                    className="bg-sky-800 text-white  w-full  px-6 py-2 rounded-2xl hover:bg-sky-900 transition-colors font-medium"
+                    className="btn btn-primary w-full rounded-xl shadow-lg shadow-primary/20 group-hover:btn-accent border-none transition-all duration-300"
                   >
                     View Details
                   </Link>

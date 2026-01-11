@@ -19,91 +19,99 @@ const Advertisements = () => {
   if (ads.length === 0) return null;
 
   return (
-    <div className="py-12 bg-white">
+    <section className="py-16 bg-base-100 text-base-content">
       <div className="container mx-auto px-4">
-        <div className="mb-10 text-center">
-          <h2 className="text-3xl md:text-4xl text-sky-800 font-bold text-gray-800">
+        {/* Header Section */}
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl md:text-5xl font-black text-primary tracking-tight">
             Featured Advertisements
           </h2>
-          <p className="text-gray-500 mt-2">
+          <div className="w-24 h-1 bg-accent mx-auto mt-4 rounded-full"></div>
+          <p className="text-secondary font-medium mt-4 max-w-lg mx-auto">
             Check out our top-rated travel routes currently on promotion
           </p>
         </div>
 
-      <Marquee pauseOnClick pauseOnHover speed={30}>
-          <div className="flex">
-          {ads.map((ad) => (
-            <div
-              key={ad._id}
-              className="w-[350px]flex mx-4 border rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 bg-gray-50 flex flex-col"
-            >
-              <div className="relative h-50 overflow-hidden r">
-                <img
-                  src={ad.imageUrl}
-                  alt={ad.ticketTitle}
-                  className="w-100 h-60 group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute top-4 right-4 bg-sky-800 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
-                  {ad.transportType}
+        {/* Marquee Wrapper */}
+        <Marquee pauseOnClick pauseOnHover speed={40} gradient={false}>
+          <div className="flex py-4">
+            {ads.map((ad) => (
+              <div
+                key={ad._id}
+                className="w-[380px] mx-6 border border-base-200 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 bg-base-100 group flex flex-col"
+              >
+                {/* Image Section */}
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={ad.imageUrl}
+                    alt={ad.ticketTitle}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                
+                  <div className="absolute top-4 right-4 bg-accent text-accent-content px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest shadow-lg">
+                    {ad.transportType}
+                  </div>
                 </div>
-              </div>
 
-              <div className="p-6 grow flex flex-col">
-                <h3 className="text-xl text-center font-bold text-gray-800 mb-2">
-                  {ad.ticketTitle}
-                </h3>
-                <div className="text-sm text-gray-600 mb-4 ">
-                  <p className="flex justify-between border-b py-1">
-                    <span>Route:</span>
-                    <span className="font-medium text-black">
-                      {ad.fromLocation} → {ad.toLocation}
-                    </span>
-                  </p>
-                  <p className="flex justify-between border-b py-1">
-                    <span>Departure:</span>
-                    <span className="text-black">
-                      {ad.departureDate} at {ad.departureTime}
-                    </span>
-                  </p>
-                </div>
-                <div className=" mt-2  ">
+                {/* Content Section */}
+                <div className="p-6 grow flex flex-col">
+                  <h3 className="text-xl font-bold text-neutral mb-3 group-hover:text-primary transition-colors">
+                    {ad.ticketTitle}
+                  </h3>
+                  
+                  <div className="space-y-2 mb-6">
+                    <div className="flex justify-between items-center border-b border-base-200 pb-2">
+                      <span className="text-sm font-semibold text-secondary/70">Route</span>
+                      <span className="font-bold text-neutral">
+                        {ad.fromLocation} → {ad.toLocation}
+                      </span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-base-200 pb-2">
+                      <span className="text-sm font-semibold text-secondary/70">Departure</span>
+                      <span className="text-sm font-medium">
+                        {ad.departureDate} | {ad.departureTime}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Perks Section */}
                   {ad.perks && ad.perks.length > 0 && (
-                    <div>
-                      <h2 className="text-xl font-semibold mb-2">
-                        Included Perks:
-                      </h2>
-                      <ul className="list-disc list-inside space-y-1">
-                        {ad.perks.map((perk, index) => (
-                          <li key={index}>{perk}</li>
+                    <div className="mb-6">
+                      <h4 className="text-sm font-bold text-primary uppercase mb-2">Included Perks:</h4>
+                      <ul className="grid grid-cols-2 gap-1">
+                        {ad.perks.slice(0, 4).map((perk, index) => (
+                          <li key={index} className="text-xs flex items-center gap-1 text-secondary">
+                            <span className="text-accent">✦</span> {perk}
+                          </li>
                         ))}
                       </ul>
                     </div>
                   )}
-                </div>
 
-                <div className="flex justify-between items-center mt-4">
-                  <div>
-                    <span className="font-bold text-gray-600">
-                      {ad.price} TK (per person)
-                    </span>
-                    <p className="  text-sky-600">
-                      Available seats: {ad.quantity}
-                    </p>
+                
+                  <div className="mt-auto pt-4 flex justify-between items-center border-t border-base-200">
+                    <div>
+                      <span className="block text-2xl font-black text-primary">
+                        {ad.price} <small className="text-xs font-normal">TK</small>
+                      </span>
+                      <p className="text-xs font-bold text-accent">
+                        {ad.quantity} seats left
+                      </p>
+                    </div>
+                    <Link
+                      to={`/all-tickets/${ad._id}`}
+                      className="btn btn-primary btn-sm md:btn-md rounded-xl hover:btn-accent border-none shadow-md"
+                    >
+                      Details
+                    </Link>
                   </div>
-                  <Link
-                    to={`/all-tickets/${ad._id}`}
-                    className="bg-sky-800 text-white px-6 py-2 rounded-2xl hover:bg-sky-900 transition-colors font-medium"
-                  >
-                    See Details
-                  </Link>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </Marquee>
+            ))}
+          </div>
+        </Marquee>
       </div>
-    </div>
+    </section>
   );
 };
 

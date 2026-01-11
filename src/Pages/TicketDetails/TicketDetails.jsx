@@ -3,38 +3,35 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast, { Toaster } from "react-hot-toast";
 import Loading from "../../Components/Loading/Loading";
-import { Navigate, useParams } from "react-router";
+import { Navigate, useParams, useLocation, useNavigate, Link } from "react-router";
 import useCountdown from "../../Hooks/useCountdown";
 import BookingModal from "../../Components/BookingModal/BookingModal";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { FaMapMarkerAlt, FaSuitcaseRolling, FaChair, FaClock, FaCheckCircle, FaArrowLeft } from "react-icons/fa";
 
 const TicketDetails = () => {
   const { id } = useParams();
   const { user } = use(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
   const axiosSecure = useAxiosSecure();
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const { data: ticket, isPending } = useQuery({
     queryKey: ["ticketDetails", id],
-
     queryFn: async () => {
-      if (!id) {
-        toast.error("Ticket ID is missing.");
-        return null;
-      }
-
       const res = await axiosSecure.get(`/all-tickets/${id}`);
       return res.data.result;
     },
     enabled: !!id,
   });
+
   const { countdown, isPassed } = useCountdown(
     ticket?.departureDate,
     ticket?.departureTime
   );
 
-  if (isPending) {
-    return <Loading></Loading>;
-  }
+  if (isPending) return <Loading />;
 
   const isTicketExpired = isPassed;
   const isOutOfStock = ticket.quantity <= 0;
@@ -42,111 +39,150 @@ const TicketDetails = () => {
 
   const handleBookNowClick = () => {
     if (!user) {
-      // User is not logged in
       toast.error("Please login to book a ticket!");
-      return Navigate("/auth/login", { state: { from: location } }); // Redirect to login
+      navigate("/auth/login", { state: { from: location } });
+      return;
     }
-    
-    // User is logged in, open the modal
     setIsModalOpen(true);
   };
 
   const formatCountdown = () => {
-    if (!countdown) return "Calculating...";
-    if (isPassed) return "EXPIRED";
-
+    if (!countdown) return "00:00:00:00";
     const { days, hours, minutes, seconds } = countdown;
     return `${days}d ${hours}h ${minutes}m ${seconds}s`;
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6 mb-10  shadow-lg rounded-lg mt-10">
-      <div className="flex justify-center">
-        <figure>
-          <img src={ticket.imageUrl} alt="" />
-        </figure>
-      </div>
-      <h1 className="text-3xl font-bold text-gray-800 mb-4 mt-5 text-center">
-        {ticket.ticketTitle}
-      </h1>
-      <p className="text-center text-gray-800 ">
-        <strong>Transport Type:</strong> {ticket.transportType}
-      </p>
-
-      <div className="flex justify-between text-gray-800 ">
-        <div>
-          <div className="flex gap-10">
-            <p>
-              <strong>From:</strong> {ticket.fromLocation}
-            </p>
-            <p>
-              <strong>To:</strong> {ticket.toLocation}
-            </p>
-          </div>
-          <div>
-            <p>
-              <strong>Price:</strong> TK {ticket.price}
-            </p>
-            <p>
-              <strong>Seats:</strong> {ticket.quantity}
-            </p>
-          </div>
-
-          <p>
-            <strong>Departure:</strong> {ticket.departureDate} at{" "}
-            {ticket.departureTime}
-          </p>
-        </div>
-        <div
-          className={`p-10 w-50 h-50  rounded-full text-white font-bold text-center ${
-            isTicketExpired ? "bg-red-500" : "bg-green-600"
-          }`}
+    <div className="max-w-6xl mx-auto p-4 md:p-10 animate__animated animate__fadeIn relative">
+      
+      {/* Back to Home Button */}
+      <div className="mb-6">
+        <Link 
+          to="/tickets" 
+          className="inline-flex items-center gap-2 px-6 py-2 rounded-full border border-base-300 text-secondary hover:text-primary hover:border-accent transition-all duration-300 group"
         >
-          <span className="mr-2">Time Remaining:</span> <br />
-          <span className="text-2xl">{formatCountdown()}</span>
-        </div>
+          <FaArrowLeft className="group-hover:-translate-x-1 transition-transform" />
+          <span className="text-[10px] font-black uppercase tracking-widest">Explore More Trips</span>
+        </Link>
       </div>
 
-      <div className="flex justify-between text-gray-800  mt-6 border-t pt-4">
-        {ticket.perks && ticket.perks.length > 0 && (
-          <div>
-            <h2 className="text-xl font-semibold mb-2">Included Perks:</h2>
-            <ul className="list-disc list-inside space-y-1">
-              {ticket.perks.map((perk, index) => (
-                <li key={index} className="text-gray-700">
-                  {perk}
-                </li>
-              ))}
-            </ul>
+      {/* Main Container */}
+      <div className="flex flex-col lg:flex-row gap-10">
+        
+        {/* Left Column: Information */}
+        <div className="lg:w-2/3 space-y-8">
+          {/* Hero Image Section */}
+          <div className="relative h-64 md:h-96 rounded-[3rem] overflow-hidden shadow-2xl group">
+            <img 
+              src={ticket.imageUrl} 
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+              alt={ticket.ticketTitle} 
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent" />
+            <div className="absolute bottom-8 left-8">
+              <span className="bg-accent text-primary px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest">
+                {ticket.transportType}
+              </span>
+              <h1 className="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mt-2">
+                {ticket.ticketTitle}
+              </h1>
+            </div>
           </div>
-        )}
-      </div>
 
-      <div>
-        {/* Book Now Button */}
-        <div className="mt-6 text-center">
-          <button
-            onClick={handleBookNowClick}
-            className={`px-12 py-3 text-xl rounded-3xl font-semibold  transition duration-200 ${
-              isBookNowDisabled
-                ? "bg-gray-400 cursor-not-allowed"
-                : "bg-sky-800 text-white hover:bg-green-700"
-            }`}
-            disabled={isBookNowDisabled}
-          >
-            {isTicketExpired
-              ? "EXPIRED"
-              : isOutOfStock
-              ? "SOLD OUT"
-              : "Book Now"}
-          </button>
+          {/* Journey Path */}
+          <div className="bg-base-100 p-8 rounded-[2.5rem] border border-base-200 flex items-center justify-between shadow-sm">
+            <div className="text-center">
+              <p className="text-[10px] font-black text-secondary uppercase tracking-widest mb-1">Origin</p>
+              <h3 className="text-xl font-black text-primary uppercase">{ticket.fromLocation}</h3>
+            </div>
+            <div className="flex-1 flex flex-col items-center px-6">
+              <div className="w-full h-[2px] bg-dashed border-t-2 border-dashed border-accent relative">
+                 <FaSuitcaseRolling className="absolute -top-3 left-1/2 -translate-x-1/2 text-accent bg-base-100 px-1" size={24} />
+              </div>
+            </div>
+            <div className="text-center">
+              <p className="text-[10px] font-black text-secondary uppercase tracking-widest mb-1">Destination</p>
+              <h3 className="text-xl font-black text-primary uppercase">{ticket.toLocation}</h3>
+            </div>
+          </div>
+
+          {/* Perks Section */}
+          {ticket.perks?.length > 0 && (
+            <div className="space-y-4">
+              <h3 className="text-lg font-black text-primary uppercase tracking-tighter flex items-center gap-2">
+                <FaCheckCircle className="text-accent" /> Premium Amenities
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {ticket.perks.map((perk, idx) => (
+                  <div key={idx} className="flex items-center gap-3 p-4 bg-white border border-base-200 rounded-2xl shadow-sm">
+                    <div className="w-2 h-2 rounded-full bg-accent" />
+                    <span className="text-xs font-black text-primary uppercase">{perk}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
 
-        {isModalOpen && user && !isBookNowDisabled && (
-          <BookingModal ticket={ticket} onClose={() => setIsModalOpen(false)} />
-        )}
+        {/* Right Column: Booking Card */}
+        <div className="lg:w-1/3">
+          <div className="sticky top-24 bg-white rounded-[3rem] border border-base-300 shadow-xl overflow-hidden">
+            {/* Price Header */}
+            <div className="bg-primary p-8 text-center">
+              <p className="text-[10px] font-black text-accent uppercase tracking-[0.2em] mb-1">Standard Fare</p>
+              <h2 className="text-4xl font-black text-white">TK {ticket.price}</h2>
+            </div>
+
+            <div className="p-8 space-y-6">
+              {/* Countdown */}
+              <div className={`p-6 rounded-[2rem] text-center space-y-2 border ${isTicketExpired ? 'bg-red-50 border-red-100' : 'bg-accent/5 border-accent/20'}`}>
+                <p className={`text-[10px] font-black uppercase tracking-widest ${isTicketExpired ? 'text-red-500' : 'text-primary'}`}>
+                   {isTicketExpired ? 'Registration Closed' : 'Closing In'}
+                </p>
+                <p className={`text-xl font-black ${isTicketExpired ? 'text-red-600' : 'text-primary'}`}>
+                  {formatCountdown()}
+                </p>
+              </div>
+
+              {/* Stats */}
+              <div className="grid grid-cols-2 gap-4">
+                <div className="bg-base-100 p-4 rounded-2xl text-center">
+                  <FaChair className="text-accent mx-auto mb-1" />
+                  <p className="text-[9px] font-bold text-secondary uppercase">Availability</p>
+                  <p className="font-black text-primary">{ticket.quantity} Seats</p>
+                </div>
+                <div className="bg-base-100 p-4 rounded-2xl text-center">
+                  <FaClock className="text-accent mx-auto mb-1" />
+                  <p className="text-[9px] font-bold text-secondary uppercase">Departure</p>
+                  <p className="font-black text-primary">{ticket.departureTime}</p>
+                </div>
+              </div>
+
+              {/* Action Button */}
+              <button
+                onClick={handleBookNowClick}
+                disabled={isBookNowDisabled}
+                className={`w-full py-5 rounded-2xl font-black uppercase tracking-widest text-xs transition-all duration-300 shadow-lg active:scale-95 ${
+                  isBookNowDisabled 
+                  ? 'bg-base-300 text-secondary cursor-not-allowed' 
+                  : 'bg-primary text-white hover:bg-accent hover:text-primary'
+                }`}
+              >
+                {isTicketExpired ? "Expired" : isOutOfStock ? "Sold Out" : "Secure My Seat"}
+              </button>
+              
+              <p className="text-[9px] font-bold text-secondary text-center uppercase tracking-tighter">
+                * Taxes and booking fees included at checkout
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      <Toaster></Toaster>
+
+      {isModalOpen && user && !isBookNowDisabled && (
+        <BookingModal ticket={ticket} onClose={() => setIsModalOpen(false)} />
+      )}
+      <Toaster position="bottom-center" />
     </div>
   );
 };

@@ -7,15 +7,16 @@ import toast, { Toaster } from "react-hot-toast";
 import Swal from "sweetalert2";
 import VendorCard from "../../../Components/VendorCard/VendorCard";
 import UpdateTicket from "../../UpdateTicket/UpdateTicket";
+import { FaTicketAlt, FaLayerGroup } from "react-icons/fa";
 
 const MyAddedTickets = () => {
   const { user } = use(AuthContext);
   const axiosSecure = useAxiosSecure();
   const queryClient = useQueryClient();
   const [isModalOpen, setIsModalOpen] = useState(false);
-    const [editingTicket, setEditingTicket] = useState(null);
+  const [editingTicket, setEditingTicket] = useState(null);
 
- const { isPending, data: tickets,refetch = [] } = useQuery({
+  const { isPending, data: tickets = [], refetch } = useQuery({
     queryKey: ["my-tickets", user?.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/my-tickets?email=${user.email}`);
@@ -23,6 +24,7 @@ const MyAddedTickets = () => {
     },
     enabled: !!user?.email,
   });
+
   const deleteTicketMutation = useMutation({
     mutationFn: async (id) => {
       const res = await axiosSecure.delete(`/vendor/${id}`);
@@ -31,72 +33,101 @@ const MyAddedTickets = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['my-tickets'] }); 
       Swal.fire({
-        title: "Deleted!",
-        text: "Your ticket has been deleted and the list is updated.",
+        title: "Removed!",
+        text: "The ticket has been successfully deleted from your inventory.",
         icon: "success",
+        confirmButtonColor: "#0F172A", 
       });
     },
-
-    onError: (error) => {
-      toast.error("Error deleting ticket.");
+    onError: () => {
+      toast.error("Failed to delete ticket. Please try again.");
     },
   });
 
-
-
-    const handleDelete = (id) => {
+  const handleDelete = (id) => {
     Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
+      title: "Confirm Deletion?",
+      text: "This ticket will be permanently removed from the marketplace.",
       icon: "warning",
       showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
+      confirmButtonColor: "#EF4444",
+      cancelButtonColor: "#0F172A", 
       confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "Cancel",
     }).then((result) => {
- if (result.isConfirmed) {
+      if (result.isConfirmed) {
         deleteTicketMutation.mutate(id);
       }
     });
   };
 
   const handleEdit = (ticketData) => {
-        setEditingTicket(ticketData);
-        setIsModalOpen(true);
-    };
+    setEditingTicket(ticketData);
+    setIsModalOpen(true);
+  };
 
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-        setEditingTicket(null);
-    };
-  if (isPending) {
-    return <Loading></Loading>;
-  }
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setEditingTicket(null);
+  };
+
+  if (isPending) return <Loading />;
+
   return (
-    <>
-      <h1 className="text-center text-sky-800 font-bold text-3xl mt-5">Your Tickets</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-  {tickets.map((ticket) => {
-    return (
-      <VendorCard 
-        key={ticket._id} 
-        ticket={ticket} 
-        onDelete={handleDelete} 
-        onEdit={handleEdit} 
-      />
-    );
-  })}
-</div>
+    <div className="animate__animated animate__fadeIn pb-10">
+      {/* Dashboard Header */}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10 border-b border-base-200 pb-6">
+        <div>
+          <h1 className="text-3xl font-black text-primary uppercase tracking-tighter flex items-center gap-3">
+            <FaLayerGroup className="text-accent" /> My <span className="text-accent">Inventory</span>
+          </h1>
+          <p className="text-[11px] font-bold text-secondary uppercase tracking-widest mt-1 ml-1">
+            Manage your listed tickets, pricing, and availability
+          </p>
+        </div>
+        
+        <div className="bg-accent/10 px-5 py-3 rounded-2xl border border-accent/20 flex flex-col items-center md:items-end">
+            <span className="text-[9px] font-black text-primary uppercase tracking-[0.2em]">Total Listed</span>
+            <div className="flex items-center gap-2">
+                <FaTicketAlt className="text-accent text-xs" />
+                <span className="text-xl font-black text-primary">{tickets.length}</span>
+            </div>
+        </div>
+      </div>
 
+      {/* Tickets Grid */}
+      {tickets.length === 0 ? (
+        <div className="text-center py-20 bg-base-100 rounded-[2rem] border-2 border-dashed border-base-300">
+           <p className="text-secondary font-bold uppercase text-xs tracking-widest">You haven't added any tickets yet.</p>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          {tickets.map((ticket) => (
+            <VendorCard 
+              key={ticket._id} 
+              ticket={ticket} 
+              onDelete={handleDelete} 
+              onEdit={handleEdit} 
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Edit Modal Overlay */}
       {isModalOpen && editingTicket && (
-                <UpdateTicket
-                    ticket={editingTicket}
-                    onClose={handleCloseModal}
-                    refetch = {refetch}
-                />
-            )}
-            <Toaster />
-    </>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-primary/40 backdrop-blur-sm p-4">
+          <div className="w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white rounded-[2.5rem] shadow-2xl animate__animated animate__zoomIn animate__faster">
+             <UpdateTicket
+                ticket={editingTicket}
+                onClose={handleCloseModal}
+                refetch={refetch}
+              />
+          </div>
+        </div>
+      )}
+      
+      <Toaster position="top-right" />
+    </div>
   );
 };
 

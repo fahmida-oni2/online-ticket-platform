@@ -5,9 +5,10 @@ import Swal from 'sweetalert2';
 import Table from '../../../Components/Table/Table';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import Loading from '../../../Components/Loading/Loading';
+import { RiAdvertisementFill, RiInformationLine } from "react-icons/ri";
 
 const AdvertiseTickets = () => {
-    const { user } = use(AuthContext); 
+    const { user } = use(AuthContext);
     const axiosSecure = useAxiosSecure();
 
     const { isPending, data: ticketsResponse, refetch } = useQuery({
@@ -16,20 +17,19 @@ const AdvertiseTickets = () => {
             const res = await axiosSecure.get('/approved-tickets');
             return res.data;
         },
+        enabled: !!user?.email
     });
 
     const tickets = ticketsResponse?.data || [];
+    const advertisedCount = tickets.filter(t => t.isAdvertised === true).length;
 
     const handleAdvertise = async (id, currentStatus) => {
-        const advertisedCount = tickets.filter(t => t.isAdvertised === true).length;
-
-
         if (!currentStatus && advertisedCount >= 6) {
             return Swal.fire({
                 icon: 'warning',
                 title: 'Limit Reached',
-                text: 'You can only advertise 6 tickets at a time.',
-                confirmButtonColor: '#7c3aed'
+                text: 'The homepage banner only supports 6 slots for optimal performance.',
+                confirmButtonColor: '#0F172A',
             });
         }
 
@@ -43,7 +43,7 @@ const AdvertiseTickets = () => {
                 Swal.fire({
                     icon: 'success',
                     title: `Success`,
-                    text: `Ticket is now ${!currentStatus ? 'Advertised' : 'Unadvertised'}`,
+                    text: `Ticket visibility has been updated.`,
                     showConfirmButton: false,
                     timer: 1500
                 });
@@ -53,35 +53,51 @@ const AdvertiseTickets = () => {
         }
     };
 
-   
-
     if (isPending) return <Loading />;
 
     return (
-        <div className="p-6 bg-gray-50 min-h-screen ">
-            <div className="max-w-7xl mx-auto">
-                <div className="flex justify-between items-center mb-8">
-                    <h1 className="text-3xl font-bold text-sky-800">Manage Advertisements</h1>
-                    <div className="bg-purple-100 text-purple-700 px-4 py-2 rounded-lg font-bold">
-                        Slot Usage: {tickets.filter(t => t.isAdvertised).length} 
-                    </div>
+        <div className="animate__animated animate__fadeIn">
+            {/* Header Section */}
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+                <div>
+                    <h1 className="text-3xl font-black text-primary uppercase tracking-tighter flex items-center gap-3">
+                        <RiAdvertisementFill className="text-accent" /> Ad <span className="text-accent">Promotions</span>
+                    </h1>
+                    <p className="text-[11px] font-bold text-secondary uppercase tracking-widest mt-1 ml-1 flex items-center gap-1">
+                        <RiInformationLine className="text-accent" /> Select up to 6 tickets for the homepage spotlight
+                    </p>
                 </div>
                 
-                <div className="bg-white shadow-xl rounded-2xl overflow-x-auto border border-gray-200">
-                    <table className="min-w-full divide-y divide-gray-200 text-center">
-                        <thead className="bg-gray-50 ">
+                {/* Slot Usage Tracker */}
+                <div className="bg-primary px-6 py-3 rounded-2xl shadow-lg shadow-primary/20 flex flex-col items-center md:items-end">
+                    <span className="text-[9px] font-black text-white/60 uppercase tracking-widest">Active Slots</span>
+                    <div className="flex items-baseline gap-1">
+                        <span className={`text-xl font-black tracking-tight ${advertisedCount >= 6 ? 'text-red-400' : 'text-accent'}`}>
+                            {advertisedCount}
+                        </span>
+                        <span className="text-white/40 text-xs font-bold">/ 6</span>
+                    </div>
+                </div>
+            </div>
+
+            {/* Table Container */}
+            <div className="overflow-hidden rounded-[1.5rem] border border-base-300 bg-white shadow-sm">
+                <div className="overflow-x-auto">
+                    <table className="table w-full border-collapse">
+                        {/* Custom Themed Head */}
+                        <thead className="bg-primary text-white uppercase text-[10px] font-black tracking-widest">
                             <tr>
-                                <th className="px-4 py-4 text-center text-xs font-semibold text-gray-500 uppercase">#</th>
-                                <th className="px-6 py-4 text-center text-xs font-semibold text-gray-500 uppercase">Title</th>
-                                <th className="px-6 py-4 text-center text-xs font-semibold text-gray-500 uppercase">Type</th>
-                                <th className="px-6 py-4 text-center text-xs font-semibold text-gray-500 uppercase">Route</th>
-                                <th className="px-6 py-4 text-center text-xs font-semibold text-gray-500 uppercase">Price</th>
-                                <th className="px-6 py-4 text-center text-xs font-semibold text-gray-500 uppercase">Seats</th>
-                                <th className="px-6 py-4 text-center text-xs font-semibold text-gray-500 uppercase">Status</th>
-                                <th className="px-6 py-4 text-center text-xs font-semibold text-gray-500 uppercase">Actions</th>
+                                <th className="py-5 pl-8">#</th>
+                                <th>Ticket Title</th>
+                                <th>Category</th>
+                                <th>Route Details</th>
+                                <th>Pricing</th>
+                                <th>Inventory</th>
+                                <th>Ad Status</th>
+                                <th className="pr-8 text-center">Toggle Action</th>
                             </tr>
                         </thead>
-                        <tbody className="divide-y divide-gray-200">
+                        <tbody className="font-bold text-primary">
                             {tickets.length > 0 ? (
                                 tickets.map((ticket, index) => (
                                     <Table 
@@ -89,13 +105,12 @@ const AdvertiseTickets = () => {
                                         index={index}
                                         ticket={ticket} 
                                         onAdvertise={handleAdvertise}
-                                       
                                     />
                                 ))
                             ) : (
                                 <tr>
-                                    <td colSpan="8" className="text-center py-20 text-gray-400">
-                                        No approved tickets found in the page.
+                                    <td colSpan="8" className="text-center py-20 text-secondary opacity-50 uppercase text-xs tracking-widest">
+                                        No approved tickets available for promotion.
                                     </td>
                                 </tr>
                             )}

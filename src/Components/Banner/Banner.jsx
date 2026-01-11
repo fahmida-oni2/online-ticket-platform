@@ -51,7 +51,7 @@ const itemVariants = {
 
 const Banner = () => {
   return (
-    <section className="w-full h-100 rounded-2xl overflow-hidden">
+    <section className="w-full h-100 rounded-2xl overflow-hidden shadow-2xl">
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         effect="fade"
@@ -67,8 +67,8 @@ const Banner = () => {
               className="relative h-full w-full bg-cover bg-center transition-transform duration-[6000ms] ease-linear scale-100"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
-              {/* Enhanced Overlay for Maximum Readability */}
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/50 to-transparent" />
+            
+              <div className="absolute inset-0 bg-gradient-to-r from-neutral/90 via-neutral/50 to-transparent" />
 
               <div className="relative z-10 flex h-full items-center px-8 md:px-24">
                 <motion.div
@@ -80,14 +80,14 @@ const Banner = () => {
                 >
                   <motion.h1
                     variants={itemVariants}
-                    className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight drop-shadow-md"
+                    className="text-4xl md:text-6xl lg:text-7xl font-black text-primary-content leading-[1.1] tracking-tight drop-shadow-md"
                   >
                     {slide.title}
                   </motion.h1>
 
                   <motion.p
                     variants={itemVariants}
-                    className="mt-6 text-lg md:text-2xl text-slate-100 font-normal max-w-xl leading-relaxed drop-shadow-sm opacity-95"
+                    className="mt-6 text-lg md:text-2xl text-primary-content/80 font-normal max-w-xl leading-relaxed drop-shadow-sm"
                   >
                     {slide.subtitle}
                   </motion.p>
@@ -95,7 +95,8 @@ const Banner = () => {
                   <motion.div variants={itemVariants} className="mt-10">
                     <Link
                       to={slide.link}
-                      className="inline-flex items-center justify-center px-10 py-4 bg-sky-600 hover:bg-sky-500 text-white text-lg font-bold rounded-full transition-all duration-300 shadow-xl shadow-sky-900/40 hover:shadow-sky-400/20 transform hover:-translate-y-1"
+                     
+                      className="btn btn-primary md:btn-lg rounded-full px-10 hover:btn-secondary border-none transition-all duration-300 shadow-xl shadow-neutral/40 transform hover:-translate-y-1"
                     >
                       {slide.buttonText}
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -110,10 +111,10 @@ const Banner = () => {
         ))}
       </Swiper>
 
-      {/* Global Style for Swiper Pagination visibility */}
+     
       <style dangerouslySetInnerHTML={{ __html: `
-        .swiper-pagination-bullet { background: white !important; opacity: 0.5; }
-        .swiper-pagination-bullet-active { background: #0ea5e9 !important; opacity: 1; width: 24px; border-radius: 4px; }
+        .swiper-pagination-bullet { background: var(--color-primary-content) !important; opacity: 0.5; }
+        .swiper-pagination-bullet-active { background: var(--color-accent) !important; opacity: 1; width: 24px; border-radius: 4px; }
       `}} />
     </section>
   );

@@ -9,85 +9,91 @@ const About = () => {
     const imgRef = useRef(null);
 
     useEffect(() => {
-       
         gsap.to(imgRef.current, {
-            y: -50,
-            ease: "none",
+            y: -60,
+            ease: "power1.out",
             scrollTrigger: {
                 trigger: imgRef.current,
                 start: "top bottom",
                 end: "bottom top",
-                scrub: true
+                scrub: 1.5
             }
         });
     }, []);
 
-  
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
-            transition: { staggerChildren: 0.2 }
+            transition: { staggerChildren: 0.15 }
         }
     };
 
     const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
+        hidden: { y: 30, opacity: 0 },
         visible: {
             y: 0,
             opacity: 1,
-            transition: { duration: 0.6, ease: "easeOut" }
+            transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
         }
     };
 
     return (
-        <div className="flex flex-col min-h-screen mb-10 overflow-x-hidden">
+        <section className="bg-base-100 min-h-screen pb-20 overflow-x-hidden transition-colors duration-300">
             {/* Header Section */}
             <motion.div 
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 variants={containerVariants}
-                className="text-center px-4"
+                className="text-center px-4 pt-16  mx-auto"
             >
+                <motion.span 
+                    variants={itemVariants}
+                    className="text-accent font-black tracking-widest uppercase text-sm mb-4 block"
+                >
+                    Our Story
+                </motion.span>
                 <motion.h2 
                     variants={itemVariants}
-                    className="text-4xl mt-10 text-sky-800 font-bold mb-4"
+                    className="text-4xl md:text-6xl font-black text-primary mb-6"
                 >
-                    About Us
+                    About Ticket Hub
                 </motion.h2>
                 <motion.p 
                     variants={itemVariants}
-                    className="mb-12 italic text-black  mx-auto leading-relaxed"
+                    className="text-lg text-secondary font-medium leading-relaxed"
                 >
-                    <span className="font-bold text-sky-700">Ticket Hub:</span> Travel All In One Place <br />
-                    Ticket Hub is the premier platform designed to offer a modern, efficient, and comprehensive travel experience, centralizing all your ticketing and journey management needs.
+                    Ticket Hub is the premier platform designed to offer a modern, efficient, and comprehensive travel experience, centralizing all your ticketing and journey management needs in one professional space.
                 </motion.p>
+                <div className="w-24 h-1.5 bg-accent mx-auto mt-8 rounded-full"></div>
             </motion.div>
 
             {/* GSAP Animated Image Container */}
-            <div className="flex mb-16 justify-center items-center px-4 overflow-hidden rounded-2xl max-w-5xl mx-auto">
-                <img 
-                    ref={imgRef}
-                    src="https://i.ibb.co.com/BHByJdCb/happy-lovely-young-woman-orange-t-shirt-showing-plane-tickets-with-yellow-suitcase-pink-wall.jpg" 
-                    alt="Travel" 
-                    className="h-[400px] w-full object-cover rounded-2xl shadow-2xl" 
-                />
+            <div className="relative mt-20 mb-28 px-4  mx-auto">
+                <div className="absolute -inset-4 bg-primary/5 rounded-[2.5rem] -z-10 blur-2xl"></div>
+                <div className="overflow-hidden rounded-[2.5rem] shadow-2xl border border-base-200">
+                    <img 
+                        ref={imgRef}
+                        src="https://i.ibb.co.com/BHByJdCb/happy-lovely-young-woman-orange-t-shirt-showing-plane-tickets-with-yellow-suitcase-pink-wall.jpg" 
+                        alt="Premium Travel Experience" 
+                        className="h-[500px] w-full object-cover scale-110" 
+                    />
+                </div>
             </div>
 
             {/* What We Offer Section */}
-            <div className="bg-gray-50 py-16 px-6 rounded-3xl mx-4 lg:mx-10 shadow-inner">
-                <div className="text-center space-y-3 mb-12">
-                    <motion.h1 
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                        className="text-4xl text-sky-800 font-bold"
+            <div className="bg-base-200 dark:bg-neutral/30 py-24 px-6 rounded-[3rem]   border border-base-300 dark:border-white/5">
+                <div className="text-center  mx-auto mb-16">
+                    <motion.h3 
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="text-3xl md:text-5xl font-black text-primary mb-6"
                     >
                         What We Offer
-                    </motion.h1>
-                    <p className="text-gray-600  mx-auto">
-                        Ticket Hub transforms the frustrating uncertainty of waitlisted tickets and plan changes into a guaranteed, flexible, and stress-free booking experience.
+                    </motion.h3>
+                    <p className="text-secondary font-medium text-lg italic">
+                        "Transforming uncertainty into a guaranteed, flexible, and stress-free booking experience."
                     </p>
                 </div>
 
@@ -97,34 +103,34 @@ const About = () => {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.2 }}
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ml-5 mr-5 mx-auto"
+                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 container mx-auto"
                 >
                     {[
                         { title: "Comprehensive Booking", desc: "Easily search, compare, and book tickets across multiple rail operators and routes." },
                         { title: "Real-Time Schedules", desc: "Access up-to-the-minute travel timetables, departure, and arrival information." },
-                        { title: "Hassle-Free Modifications", desc: "Quickly modify, change, or cancel your existing ticket bookings directly through the app." },
+                        { title: "Hassle-Free Changes", desc: "Quickly modify, change, or cancel your existing ticket bookings directly through the app." },
                         { title: "Digital Ticketing", desc: "Seamless mobile ticketing combined with advanced journey planning and real-time routing." }
                     ].map((feature, index) => (
                         <motion.div
                             key={index}
                             variants={itemVariants}
-                            whileHover={{ y: -10, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1)" }}
-                            className="flex flex-col items-center bg-white p-8 rounded-2xl shadow-md border border-gray-100 transition-all"
+                            whileHover={{ y: -12 }}
+                            className="bg-base-100 p-10 rounded-[2rem] shadow-xl border border-base-300 dark:border-white/10 transition-all duration-300 group"
                         >
-                            <div className="w-12 h-12 bg-sky-100 rounded-full mb-4 flex items-center justify-center">
-                                <span className="text-sky-800 font-bold">{index + 1}</span>
+                            <div className="w-14 h-14 bg-primary/10 rounded-2xl mb-6 flex items-center justify-center group-hover:bg-primary group-hover:rotate-6 transition-all duration-500">
+                                <span className="text-primary group-hover:text-primary-content font-black text-xl">{index + 1}</span>
                             </div>
-                            <h3 className="text-xl font-semibold mb-3 text-sky-800 text-center">
+                            <h4 className="text-xl font-black mb-4 text-base-content group-hover:text-primary transition-colors">
                                 {feature.title}
-                            </h3>
-                            <p className="text-gray-500 text-center text-sm leading-relaxed">
+                            </h4>
+                            <p className="text-secondary text-sm leading-relaxed font-medium">
                                 {feature.desc}
                             </p>
                         </motion.div>
                     ))}
                 </motion.div>
             </div>
-        </div>
+        </section>
     );
 };
 

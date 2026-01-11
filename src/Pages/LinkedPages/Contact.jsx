@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-
 const fadeInUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
@@ -20,12 +19,12 @@ const OfficeLocation = ({ city, name, address }) => (
     variants={fadeInUp}
     className="w-full text-center mb-8 px-4"
   >
-    <div className="h-full p-6 rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-shadow">
-      <h3 className="text-sky-600 text-sm font-bold tracking-widest uppercase mb-3">
+    <div className="h-full p-8 rounded-[2rem] border border-base-200 dark:border-white/10 bg-base-100 shadow-sm hover:shadow-xl hover:border-accent transition-all duration-300 group">
+      <h3 className="text-accent text-xs font-black tracking-widest uppercase mb-4">
         {city}
       </h3>
-      <p className="text-sky-900 font-bold mb-2">{name}</p>
-      <p className="text-gray-500 text-sm leading-relaxed whitespace-pre-line">
+      <p className="text-primary dark:text-white font-black text-xl mb-3 group-hover:text-accent transition-colors">{name}</p>
+      <p className="text-secondary font-medium text-sm leading-relaxed whitespace-pre-line">
         {address}
       </p>
     </div>
@@ -33,48 +32,52 @@ const OfficeLocation = ({ city, name, address }) => (
 );
 
 const Contact = () => (
-  <div className="min-h-screen bg-white selection:bg-sky-100">
+  <div className="min-h-screen bg-base-100 selection:bg-accent/30 transition-colors duration-300">
     {/* --- Corporate Head Office --- */}
-    <div className="px-4 py-10">
+    <div className="container mx-auto px-4 py-16">
       <motion.div 
-        initial={{ opacity: 0, scale: 0.95 }}
+        initial={{ opacity: 0, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
-        className="bg-sky-900 text-white rounded-[2.5rem] overflow-hidden relative"
+        className="bg-primary text-primary-content rounded-[3rem] overflow-hidden relative shadow-2xl shadow-primary/20"
       >
-        {/* Decorative Background Blob */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-sky-800 rounded-full blur-3xl opacity-50 -mr-20 -mt-20"></div>
+        {/* Decorative Background Blobs */}
+        <div className="absolute top-0 right-0 w-80 h-80 bg-accent/20 rounded-full blur-[80px] -mr-32 -mt-32"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/10 rounded-full blur-[60px] -ml-20 -mb-20"></div>
         
-        <div className="relative z-10 py-16 px-8 sm:px-16 lg:px-24">
-          <motion.h1 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-3xl sm:text-5xl font-extrabold text-center mb-16 tracking-tight"
-          >
-            Corporate Head Office
-          </motion.h1>
+        <div className="relative z-10 py-20 px-8 sm:px-16 lg:px-24">
+          <motion.div variants={fadeInUp} initial="hidden" animate="visible" className="text-center mb-16">
+            <span className="text-accent font-black tracking-[0.3em] uppercase text-xs mb-4 block">Central Hub</span>
+            <h1 className="text-4xl sm:text-6xl font-black tracking-tight">
+              Corporate Head Office
+            </h1>
+          </motion.div>
 
-          <div className="flex flex-wrap justify-between max-w-6xl mx-auto gap-12">
-            <div className="w-full lg:w-5/12">
-              <h2 className="text-sky-400 font-bold tracking-widest mb-2 uppercase text-sm">Bangladesh</h2>
-              <p className="text-2xl font-bold mb-4">Ticket Hub Limited</p>
-              <p className="text-sky-100/80 leading-relaxed text-lg italic">
+          <div className="flex flex-wrap justify-between max-w-6xl mx-auto gap-12 items-center">
+            <div className="w-full lg:w-5/12 text-center lg:text-left">
+              <h2 className="text-accent font-black tracking-widest mb-3 uppercase text-sm">Bangladesh HQ</h2>
+              <p className="text-3xl font-black mb-6">Ticket Hub Limited</p>
+              <p className="text-primary-content/80 leading-relaxed text-lg font-medium italic">
                 Green View, 5th Floor, #No 23,<br /> 
                 Old Airport Road, Dhaka-1200.
               </p>
             </div>
             
-            <div className="w-full  border-l border-sky-800 pl-0 lg:pl-12">
-              <div className="space-y-4 text-lg">
-                <p className="flex items-center gap-3">
-                  <span className="text-sky-400">Ph:</span> +880 1XXX XXXXXX
+            <div className="w-full lg:w-auto border-t lg:border-t-0 lg:border-l border-white/10 pt-12 lg:pt-0 lg:pl-16">
+              <div className="space-y-6 text-xl text-center lg:text-left">
+                <p className="flex items-center justify-center lg:justify-start gap-4">
+                  <span className="text-accent font-black text-sm uppercase">Ph:</span> 
+                  <span className="font-bold tracking-tight">+880 1745 203494</span>
                 </p>
-                <p className="flex items-center gap-3">
-                  <span className="text-sky-400">Support:</span> 24/7 Global Access
+                <p className="flex items-center justify-center lg:justify-start gap-4">
+                  <span className="text-accent font-black text-sm uppercase">Support:</span> 
+                  <span className="font-bold tracking-tight">24/7 Global Access</span>
                 </p>
-                <div className="py-2 border-t border-sky-800"></div>
-                <p className="text-sky-300 font-medium">tickethub@gmail.com</p>
+                <div className="py-2 hidden lg:block"></div>
+                <p className="text-accent font-black text-2xl underline decoration-2 underline-offset-8">
+                  tickethub@gmail.com
+                </p>
               </div>
             </div>
           </div>
@@ -83,81 +86,85 @@ const Contact = () => (
     </div>
 
     {/* --- Other Offices Section --- */}
-    <motion.div 
+    <motion.section 
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
       variants={staggerContainer}
-      className="py-20 px-6 sm:px-10 lg:px-20  mx-auto"
+      className="py-24 container mx-auto "
     >
-      <motion.h2 
-        variants={fadeInUp}
-        className="text-4xl font-black text-center text-sky-900 mb-16 tracking-tight"
-      >
-        Regional Hubs
-      </motion.h2>
+      <div className="text-center mb-16">
+        <h2 className="text-4xl md:text-5xl font-black text-primary tracking-tight mb-4">
+          Regional Hubs
+        </h2>
+        <div className="w-20 h-1.5 bg-accent mx-auto rounded-full"></div>
+      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-auto ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <OfficeLocation
           city="Chittagong"
           name="Ticket Hub South"
-          address={`JK Centre, 2nd Floor, Kannapiran Mills Rd,\nChittagong.`}
+          address={`JK Centre, 2nd Floor,\nKannapiran Mills Rd,\nChittagong.`}
         />
         <OfficeLocation
           city="Abdullahpur"
           name="Ticket Hub North"
-          address={`Opp Doordarshan TV Tower,\nDrive-In Road Thaltej.`}
+          address={`Opp Doordarshan Tower,\nDrive-In Road Thaltej,\nDhaka.`}
         />
         <OfficeLocation
           city="Sylhet"
           name="Ticket Hub East"
-          address={`Fortune Ambience, 2nd Floor,\nNear Hotel Surya, MouloviBazar.`}
+          address={`Fortune Ambience, 2nd Floor,\nMouloviBazar, Sylhet.`}
         />
         <OfficeLocation
           city="Rajshahi"
           name="Ticket Hub West"
-          address={`Modern Profound Tech Park,\nWhitefield's Road, Rajshahi.`}
+          address={`Modern Profound Tech Park,\nWhitefield's Road,\nRajshahi.`}
         />
       </div>
-    </motion.div>
+    </motion.section>
 
     {/* --- Enquiry Form --- */}
-    <section className="py-24 bg-gray-50 overflow-hidden">
-      <div className="max-w-4xl mx-auto px-6">
+    <section className="py-24 bg-base-200 dark:bg-neutral/20 overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6">
         <motion.div 
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
-          className="bg-white rounded-[3rem] shadow-2xl shadow-sky-900/10 flex flex-col md:flex-row overflow-hidden border border-gray-100"
+          className="bg-base-100 rounded-[3.5rem] shadow-2xl overflow-hidden flex flex-col md:flex-row border border-base-300 dark:border-white/5"
         >
           {/* Form Info Side */}
-          <div className="bg-sky-800 p-12 text-white md:w-1/3 flex flex-col justify-center">
-            <h2 className="text-3xl font-bold mb-4">Let's Talk</h2>
-            <p className="text-sky-200 text-sm">Have a specific requirement? Our technical team is ready to assist you.</p>
+          <div className="bg-primary p-16 text-primary-content md:w-2/5 flex flex-col justify-center relative overflow-hidden">
+             <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-3xl"></div>
+             <span className="text-accent font-black tracking-widest uppercase text-xs mb-4 block">Get In Touch</span>
+            <h2 className="text-4xl font-black mb-6 leading-tight">Let's Talk Travel.</h2>
+            <p className="text-primary-content/70 font-medium italic">
+                Our support team typically responds within 2 hours for all technical and booking inquiries.
+            </p>
           </div>
 
           {/* Actual Form */}
-          <div className="p-10 md:w-2/3">
-            <form className="grid grid-cols-1 gap-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="p-12 md:w-3/5">
+            <form className="grid grid-cols-1 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
-                  <label className="block text-sm font-bold text-sky-900 mb-2">Full Name</label>
-                  <input type="text"  className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-500 outline-none transition-all bg-gray-50" required />
+                  <label className="block text-xs font-black text-primary uppercase tracking-widest mb-3">Full Name</label>
+                  <input type="text" className="w-full px-6 py-4 rounded-2xl border border-base-300 dark:border-white/10 focus:ring-2 focus:ring-accent outline-none transition-all bg-base-200 dark:bg-neutral/40 text-base-content font-bold"  required />
                 </div>
                 <div>
-                  <label className="block text-sm font-bold text-sky-900 mb-2">Email Address</label>
-                  <input type="email" className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-500 outline-none transition-all bg-gray-50" required />
+                  <label className="block text-xs font-black text-primary uppercase tracking-widest mb-3">Email Address</label>
+                  <input type="email" className="w-full px-6 py-4 rounded-2xl border border-base-300 dark:border-white/10 focus:ring-2 focus:ring-accent outline-none transition-all bg-base-200 dark:bg-neutral/40 text-base-content font-bold"  required />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-bold text-sky-900 mb-2">Message</label>
-                <textarea rows="4"  className="w-full px-5 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-sky-500 outline-none transition-all bg-gray-50"></textarea>
+                <label className="block text-xs font-black text-primary uppercase tracking-widest mb-3">Your Message</label>
+                <textarea rows="4" className="w-full px-6 py-4 rounded-2xl border border-base-300 dark:border-white/10 focus:ring-2 focus:ring-accent outline-none transition-all bg-base-200 dark:bg-neutral/40 text-base-content font-bold"></textarea>
               </div>
               
               <motion.button 
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.02, backgroundColor: "var(--color-accent)", color: "white" }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full py-4 bg-sky-800 text-white rounded-xl font-bold text-lg shadow-lg shadow-sky-900/20 hover:bg-sky-700 transition-colors"
+                className="w-full py-5 bg-primary text-primary-content rounded-2xl font-black text-lg shadow-xl shadow-primary/20 transition-all uppercase tracking-widest"
               >
                 Send Message
               </motion.button>
