@@ -9,6 +9,7 @@ import { GrUserManager } from "react-icons/gr";
 import { RiAdvertisementFill } from "react-icons/ri";
 import useRole from "../../Hooks/useRole";
 
+
 const DashboardLayout = () => {
   const { role } = useRole();
 
@@ -42,10 +43,11 @@ const DashboardLayout = () => {
              <h1 className="text-3xl lg:text-4xl font-black text-primary uppercase tracking-tighter">
               Welcome to Dashboard
             </h1>
-            <div className="h-1 w-20 bg-accent mt-2 rounded-full"></div>
+            <div className="h-1 w-full bg-accent mt-2 rounded-full"></div>
+        
           </div>
 
-          <div className="bg-white rounded-[2rem] shadow-xl border border-base-300 p-6 lg:p-8 min-h-[70vh]">
+          <div className="bg-white rounded-[2rem] shadow-xl border border-base-300 p-6 lg:p-8 min-h-[70vh] w-full block">
             <Outlet />
           </div>
         </main>
